@@ -54,26 +54,37 @@ router.post("/", (req, res) => {
     const icreds = req.body.total_credits;
     const idept = req.body.department_name;
 
-    // const sqlQuery = `
-    // INSERT INTO ${tables.tableNames.student}
-    // (name, total_credits, department_name)
-    // VALUES ('${iname}', ${icreds}, '${idept}')`;
-    // const abc=
-    // console.table(req.body);
-    db.run(`insert into student ( name, total_credits, department_name) values ('${iname}', ${icreds}, '${idept}');`, (err,rows) => {
-        if (err) {
-            console.log(err);
-            return res.status(500).send({
-                message: "An error occured while trying to save the student details"
+    db.get(`SELECT * FROM department WHERE deptName ='${idept}'`, (err, row) => {
+        if (err) console.log(err);
+        else if (row) {
+            db.run(`insert into student ( name, total_credits, department_name) values ('${iname}', ${icreds}, '${idept}');`, (err, rows) => {
+                if (err) {
+                    console.log(err);
+                    return res.status(500).send({
+                        message: "An error occured while trying to save the student details"
+                    });
+                }
+                // if (!rows) {
+                //     // return res.status(404).send({
+                //     //     message: "A student with the requested ID was not found."
+                //     // });
+                // }
             });
+            res.redirect("/students");
         }
-        // if (!rows) {
-        //     // return res.status(404).send({
-        //     //     message: "A student with the requested ID was not found."
-        //     // });
-        // }
-        res.redirect("/students");
+        else res.send({
+            message: "An error occurred while INSERTING this delete this student. Please go back and choose a department from available departments:)"
+        });
     });
+
+
+    // db.each("SELECT * FROM Dog WHERE breed = 'Labrador'", 
+    //   (error, row) => {
+    //   /*gets called for every row our query returns*/
+    //     console.log(`${row.name} is a good dog`);
+    //   });
+
+
 });
 router.post("/:id/delete", (req, res) => {
     const sqlQuery = `
@@ -91,14 +102,14 @@ router.post("/:id/delete", (req, res) => {
 });
 router.post("/:id/update", (req, res) => {
 
-    res.render("../Frontend/updateStudent.ejs",{"sid":req.params.id})
-    
+    res.render("../Frontend/updateStudent.ejs", { "sid": req.params.id })
+
 });
-router.post("/:id/update2",(req,res)=>{
+router.post("/:id/update2", (req, res) => {
     const iname = req.body.name;
     const icreds = req.body.total_credits;
     const idept = req.body.department_name;
-    
+
     const sqlQuery = `
     UPDATE ${tables.tableNames.student}
     SET name = '${iname}', total_credits = ${icreds}, department_name = '${idept}'

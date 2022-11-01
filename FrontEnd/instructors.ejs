@@ -139,19 +139,19 @@
   <div class="container">
     <table>
     <tr>
+      <th>ID</th>
       <th>Name</th>
       <th>Department Name</th>
       <th>Salary</th>
-      <th>ID</th>
       <th></th>
     </tr>
 
     <% instructor.forEach((ins) => {%>
     <tr>
+      <td><%=ins.id%></td>
       <td><%=ins.name%></td>
       <td><%=ins.department_name%></td>
       <td>₹<%=ins.salary%></td>
-      <td><%=ins.id%></td>
       <td>
         <form action="/instructors/<%=ins.id%>/delete" method ="POST">
           <button class ="btn btn-danger"> <i class="fas fa-trash-alt" style="padding-right: 5px"></i>  Delete</button>
