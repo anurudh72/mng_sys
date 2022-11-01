@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Create Student</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">  
+</head>
+
+<style type="text/css">
+  h2{
+    text-align: center;
+  }
+</style>
+
+<body>
+  <div class="container">
+  <form method="post" action="/students/<%=sid%>/update2">
+
+  <h2>Update Student with  Admission Number = 20JE000<%=sid%></h2>
+  <div class="form-group">
+    <label for="e0">Admission Number</label>
+    <input disabled name="id" type="text" class="form-control" id="e0" aria-describedby="emailHelp" value="20JE000<%=sid%>">
+    <label for="e1">New Name</label>
+    <input name="name" type="text" class="form-control" id="e1" aria-describedby="emailHelp">
+  </div>
+  <div class="form-group">
+    <label for="e3">New Total Credits</label>
+    <input name="total_credits" type="text" class="form-control" id="e3" aria-describedby="emailHelp">
+  </div>
+  <div class="form-group">
+    <label for="e2">New Department Name</label>
+    <input name="department_name"type="text" class="form-control" id="e2" aria-describedby="emailHelp">
+  </div>
+
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+  </div>
+
+</body>
+</html>
