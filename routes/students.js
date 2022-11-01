@@ -43,37 +43,43 @@ router.get("/:id", (req, res) => {
 });
 
 router.post("/", (req, res) => {
-    const { error } = validateStudent(req.body);
-    if (error) {
-        return res.status(400).send({
-            message: error.details[0].message
-        });
-    }
 
     const iname = req.body.name;
     const icreds = req.body.total_credits;
     const idept = req.body.department_name;
+    const iid = req.body.instructor_id;
 
     db.get(`SELECT * FROM department WHERE deptName ='${idept}'`, (err, row) => {
         if (err) console.log(err);
         else if (row) {
-            db.run(`insert into student ( name, total_credits, department_name) values ('${iname}', ${icreds}, '${idept}');`, (err, rows) => {
-                if (err) {
-                    console.log(err);
-                    return res.status(500).send({
-                        message: "An error occured while trying to save the student details"
+
+            db.get(`SELECT * FROM instructor WHERE id ='${iid}'`, (errr, ro) => {
+                if (errr) console.log(errr);
+                else if (ro) {
+
+                    db.run(`insert into student ( name, total_credits, instructor_id, department_name) values ('${iname}', ${icreds}, '${iid}', '${idept}');`, (err, rows) => {
+                        if (err) {
+                            console.log(err);
+                            return res.status(500).send({
+                                message: "An error occured while trying to save the student details"
+                            });
+                        }
+                        // if (!rows) {
+                        //     // return res.status(404).send({
+                        //     //     message: "A student with the requested ID was not found."
+                        //     // });
+                        // }
                     });
+                    res.redirect("/students");
                 }
-                // if (!rows) {
-                //     // return res.status(404).send({
-                //     //     message: "A student with the requested ID was not found."
-                //     // });
-                // }
+                else res.send({
+                    message: "Please go back and choose a Instructor ID from AVAILABLE ones:)"
+                });
             });
-            res.redirect("/students");
         }
+
         else res.send({
-            message: "An error occurred while INSERTING this delete this student. Please go back and choose a department from available departments:)"
+            message: "Please go back and choose a department from AVAILABLE departments:)"
         });
     });
 
