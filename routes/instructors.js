@@ -17,6 +17,20 @@ router.get("/", (req, res) => {
 });
 
 
+router.get("/lol", (req, res) => {
+    const sqlQuery = `SELECT * FROM ${tables.tableNames.instructor}`;
+    db.all(sqlQuery, (err, rows) => {
+        if (err) {
+            console.log(err);
+            return res.status(500).send({
+                message: "An error occurred"
+            });
+        }
+        // res.send(rows);
+        res.render("../FrontEnd/errorins.ejs", { instructor: rows });
+    });
+});
+
 router.get("/create", (req, res) => {
     res.render('../FrontEnd/createInstructor.ejs');
 });

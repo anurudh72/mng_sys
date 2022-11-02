@@ -72,24 +72,11 @@ router.post("/", (req, res) => {
                     });
                     res.redirect("/students");
                 }
-                else res.send({
-                    message: "Please go back and choose a Instructor ID from AVAILABLE ones:)"
-                });
+                else return res.redirect("/instructors/lol");
             });
         }
-
-        else res.send({
-            message: "Please go back and choose a department from AVAILABLE departments:)"
-        });
+        else return res.redirect("/departments/lol");
     });
-
-
-    // db.each("SELECT * FROM Dog WHERE breed = 'Labrador'", 
-    //   (error, row) => {
-    //   /*gets called for every row our query returns*/
-    //     console.log(`${row.name} is a good dog`);
-    //   });
-
 
 });
 router.post("/:id/delete", (req, res) => {
@@ -130,7 +117,6 @@ router.post("/:id/update2", (req, res) => {
             db.get(`SELECT * FROM instructor WHERE id ='${iid}'`, (errr, ro) => {
                 if (errr) console.log(errr);
                 else if (ro) {
-
                     db.run(sqlQuery, [req.params.id], (err) => {
                         if (err) {
                             console.log(err);
@@ -138,34 +124,14 @@ router.post("/:id/update2", (req, res) => {
                                 message: "An error occurred while trying to update this student."
                             });
                         }
-                        return res.redirect("/students");
                     });
-                    // res.redirect("/students");
+                    res.redirect("/students");
                 }
-                else res.send({
-                    message: "upd Please go back and choose a Instructor ID from AVAILABLE ones:)"
-                });
+                else return res.redirect("/instructors/lol");
             });
         }
-
-        
-        return res.redirect("/departments/lol");
-        // else res.send({
-        //     message: "upd Please go back and choose a department from AVAILABLE departments:)"
-        // });
+        else return res.redirect("/departments/lol");
     });
-
-
-
-    // db.run(sqlQuery, [req.params.id], (err) => {
-    //     if (err) {
-    //         console.log(err);
-    //         return res.status(500).send({
-    //             message: "An error occurred while trying to update this student."
-    //         });
-    //     }
-    //     return res.redirect("/students");
-    // });
 })
 
 
