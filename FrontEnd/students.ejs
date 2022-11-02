@@ -104,7 +104,7 @@
 
 <body style="background-color:rgb(188, 157, 187);">
 
-  <header id="header" class="transparent-nav" style="background-color:rgb(67, 5, 65); ">
+  <header id="header" class="transparent-nav" style="background-color:rgb(0, 21, 68); ">
     <div class="container">
 
       <!-- <div class="navbar-header"> -->
@@ -151,9 +151,9 @@
         <th>Name</th>
         <th>Department </th>
         <th>Total Credits</th>
-        <th>Operations</th>
-        <!-- <th>Instructor ID</th> -->
-        <th></th>
+        <th>Instructor ID</th>
+        <th style="text-align: center;" colspan="2">Operations</th>
+        <!-- <th></th> -->
       </tr>
 
       <% students.forEach((student)=> {%>
@@ -170,9 +170,9 @@
           <td>
             <%=student.total_credits%>
           </td>
-          <!-- <td>
+          <td>
             <%=student.instructor_id%>
-          </td> -->
+          </td>
 
           <td>
             <form action="/students/<%=student.id%>/delete" method="POST">

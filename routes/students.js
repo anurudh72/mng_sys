@@ -112,24 +112,60 @@ router.post("/:id/update", (req, res) => {
 
 });
 router.post("/:id/update2", (req, res) => {
+
     const iname = req.body.name;
     const icreds = req.body.total_credits;
     const idept = req.body.department_name;
-
+    const iid = req.body.instructor_id;
     const sqlQuery = `
     UPDATE ${tables.tableNames.student}
-    SET name = '${iname}', total_credits = ${icreds}, department_name = '${idept}'
+    SET name = '${iname}', total_credits = ${icreds}, department_name = '${idept}', instructor_id = '${iid}' 
     WHERE ${tables.studentColumns.id} == ? ;`
 
-    db.run(sqlQuery, [req.params.id], (err) => {
-        if (err) {
-            console.log(err);
-            return res.status(500).send({
-                message: "An error occurred while trying to update this student."
+
+    db.get(`SELECT * FROM department WHERE deptName ='${idept}'`, (err, row) => {
+        if (err) console.log(err.message);
+        else if (row) {
+
+            db.get(`SELECT * FROM instructor WHERE id ='${iid}'`, (errr, ro) => {
+                if (errr) console.log(errr);
+                else if (ro) {
+
+                    db.run(sqlQuery, [req.params.id], (err) => {
+                        if (err) {
+                            console.log(err);
+                            return res.status(500).send({
+                                message: "An error occurred while trying to update this student."
+                            });
+                        }
+                        return res.redirect("/students");
+                    });
+                    // res.redirect("/students");
+                }
+                else res.send({
+                    message: "upd Please go back and choose a Instructor ID from AVAILABLE ones:)"
+                });
             });
         }
-        return res.redirect("/students");
+
+        
+        return res.redirect("/departments/lol");
+        // else res.send({
+        //     message: "upd Please go back and choose a department from AVAILABLE departments:)"
+        // });
     });
+
+
+
+    // db.run(sqlQuery, [req.params.id], (err) => {
+    //     if (err) {
+    //         console.log(err);
+    //         return res.status(500).send({
+    //             message: "An error occurred while trying to update this student."
+    //         });
+    //     }
+    //     return res.redirect("/students");
+    // });
 })
 
 

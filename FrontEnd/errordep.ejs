@@ -2,7 +2,7 @@
 <html lang="en" dir="ltr">
 <head>
   <meta charset="utf-8">
-  <title>Sections</title>
+  <title>Departments</title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
@@ -62,11 +62,10 @@
     transform: translateY(0px);
     opacity: 1;
   }
-  li a,
-li  a:hover{
-text-decoration: none;
-}
-
+ li a,
+ li  a:hover{
+  text-decoration: none;
+ }
     table {
 
       border-collapse: collapse;
@@ -81,7 +80,7 @@ text-decoration: none;
     tr:nth-child(even){background-color: #f2f2f2}
 
     th {
-      background-color: #1929b2;
+      background-color:#1929b2;
       color: white;
     }
 
@@ -91,13 +90,13 @@ text-decoration: none;
 
     a{
       color: black;
+      text-decoration:underline;
     }
   </style>
 </head>
-</head>
-<body style="background-color:rgb(188, 157, 187);">
+</head><body style="background-color:rgb(188, 157, 187);">
 
-  <header id="header" class="transparent-nav" style="background-color:rgb(0, 21, 68); ">
+  <header id="header" class="transparent-nav" style="background-color:rgb(67, 5, 65); ">
     <div class="container">
 
       <!-- <div class="navbar-header"> -->
@@ -135,34 +134,23 @@ text-decoration: none;
     </div>
   </header>
 
-  <h1 style="padding-top:80px; font-family: 'Poppins', sans-serif;font-weight: bold;">Course Enrollment</h1>
+  <h3 style="padding-top:80px; font-family: 'Poppins', sans-serif; font-weight: bold; color: #bf1206; text-align: center;">Go back and select a name  from following  <br>available departments ^_^ OR add a department first</h3>
   <br>
+  
   <div class="container">
     <table>
     <tr>
-      <th>Course ID</th>
-      <th>Semester</th>
-      <th>Year</th>
-      <th></th>
+      <th>Department Name</th>
+      <th>Building</th>
     </tr>
 
-    <% sections.forEach((section) => {%>
+    <% departments.forEach((department) => {%>
     <tr>
-      <td>CSC<%=section.id%></td>
-      <td><%=section.semester%></td>
-      <td><%=section.year%></td>
-      <td>
-        <form action="/sections/<%=section.id%>/delete" method ="POST">
-          <button class ="btn btn-danger"> <i class="fas fa-trash-alt" style="padding-right: 5px"></i> Delete</button>
-        </form>
-      </td>
+      <td><%=department.deptName%></td>
+      <td><%=department.building%></td>
     </tr>
     <%})%>
     </table>
-    <button class=" btn btn-success" style="margin-left: 450px; margin-top: 10px;">
-      <i class="fa fa-plus" aria-hidden="true" style="padding-right: 10px; padding-left: 5px;"></i><a
-        href="/sections/create" style="font-size: larger; font-weight: bold; color: rgb(224, 255, 255);">Add New
-        Courses</a></button>
 
   </div>
 </body>

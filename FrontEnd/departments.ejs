@@ -96,7 +96,7 @@
 </head>
 </head><body style="background-color:rgb(188, 157, 187);">
 
-  <header id="header" class="transparent-nav" style="background-color:rgb(67, 5, 65); ">
+  <header id="header" class="transparent-nav" style="background-color:rgb(0, 21, 68); ">
     <div class="container">
 
       <!-- <div class="navbar-header"> -->
@@ -147,7 +147,7 @@
 
     <% departments.forEach((department) => {%>
     <tr>
-      <td><%=department.deptName%></td>
+      <td><a href = "/departments/<%=department.deptName%>/depstud"><%=department.deptName%></a></td>
       <td><%=department.building%></td>
       <td>₹ <%=department.budget%></td>
       <td>

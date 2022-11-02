@@ -17,6 +17,38 @@ router.get("/", (req, res) => {
     });
 });
 
+
+router.get("/lol", (req, res) => {
+    const sqlQuery = `SELECT * FROM ${tables.tableNames.department}`;
+    db.all(sqlQuery, (err, rows) => {
+        if (err) {
+            console.log(err);
+            return res.status(500).send({
+                message: "An error occurred"
+            });
+        }
+        // res.send(rows);
+        res.render("../FrontEnd/errordep.ejs", { departments: rows });
+    });
+});
+
+router.get("/:deptName/depstud", (req, res) => {
+
+    const nm = req.params.deptName;
+    console.log('nmnmnmnmn' + nm);
+    const sqlQuery = `SELECT * FROM student WHERE department_name = '${nm}'`;
+    db.all(sqlQuery, (err, rows) => {
+        if (err) {
+            console.log(err);
+            return res.status(500).send({
+                message: "An error occurred"
+            });
+        }
+        // res.send(rows);
+        res.render("../FrontEnd/studentByDep.ejs", { students: rows, sid: req.params.deptName });
+    });
+});
+
 router.get("/create", (req, res) => {
     res.render('../FrontEnd/createDepartment.ejs');
 });
