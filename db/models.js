@@ -19,7 +19,7 @@ const studentSchema = {
 };
 
 const sectionSchema = {
-    id: Joi.number().required(),
+    id: Joi.string().max(10).required(),
     semester: Joi.number().min(0).max(8).required(),
     year: Joi.number().min(0).max(4).required()
 };

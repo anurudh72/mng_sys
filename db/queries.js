@@ -31,7 +31,7 @@ const createStudentsSql = `CREATE TABLE IF NOT EXISTS ${tableNames.student}(
 
 const sectionColumns = tables.sectionColumns;
 const createSectionsSql = `CREATE TABLE IF NOT EXISTS ${tableNames.section}(
-    ${sectionColumns.id} INTEGER PRIMARY KEY NOT NULL,
+    ${sectionColumns.id} TEXT PRIMARY KEY NOT NULL,
     ${sectionColumns.semester} INTEGER NOT NULL CHECK(${sectionColumns.semester} <= 8),
     ${sectionColumns.year} INTEGER NOT NULL CHECK(${sectionColumns.year} <= 4)
 )`;

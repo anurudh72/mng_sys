@@ -124,7 +124,7 @@ text-decoration: none;
           </li>
           <li style="padding-top:15px;padding-bottom:15px;"><a href="/sections"
               style="color:cyan ; font-size:15px; font-weight: 500;">Courses</a></li>
-          <li style="padding-top:15px;padding-bottom:15px;"><a href=""
+          <li style="padding-top:15px;padding-bottom:15px;"><a href="/students/attendance"
               style="color:cyan ; font-size:15px; font-weight: 500;">Attendance</a></li>
 
           <!-- <li> <a href="#">Teaches</a> </li> -->
@@ -143,12 +143,12 @@ text-decoration: none;
       <th>Course ID</th>
       <th>Semester</th>
       <th>Year</th>
-      <th></th>
+      <th>Operations</th>
     </tr>
 
     <% sections.forEach((section) => {%>
     <tr>
-      <td>CSC<%=section.id%></td>
+      <td><%=section.id%></td>
       <td><%=section.semester%></td>
       <td><%=section.year%></td>
       <td>

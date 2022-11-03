@@ -22,12 +22,12 @@ router.get("/create", function (req, res) {
 
 
 router.post("/", (req, res) => {
-    const { error } = validateSection(req.body);
-    if (error) {
-        return res.status(400).send({
-            message: error.details[0].message
-        });
-    }
+    // const { error } = validateSection(req.body);
+    // if (error) {
+    //     return res.status(400).send({
+    //         message: error.details[0].message
+    //     });
+    // }
 
     const Id = req.body.id;
     const Sem = req.body.semester;
@@ -35,7 +35,7 @@ router.post("/", (req, res) => {
     const sqlQuery = `
     INSERT INTO ${tables.tableNames.section}
     (id, semester, year)
-    VALUES (${Id}, ${Sem}, ${Yr})`;
+    VALUES ('${Id}', ${Sem}, ${Yr})`;
 
     db.run(sqlQuery, (err) => {
         if (err) {
