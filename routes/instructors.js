@@ -52,15 +52,24 @@ router.post("/", (req, res) => {
     (name, salary, department_name)
     VALUES ('${iname}', ${isalary}, '${idept}')`;
 
-    db.run(sqlQuery, (err) => {
-        if (err) {
-            console.log(err);
-            return res.status(500).send({
-                message: "An error occured while trying to save the instructor details"
+    db.get(`SELECT * FROM department WHERE deptName ='${idept}'`, (err, row) => {
+        if (err) console.log(err.message);
+        else if (row) {
+            db.run(sqlQuery, (err) => {
+                if (err) {
+                    console.log(err);
+                    return res.status(500).send({
+                        message: "An error occured while trying to save the instructor details"
+                    });
+                }
+                res.redirect("/instructors");
             });
+           
         }
-        res.redirect("/instructors");
+        else return res.redirect("/departments/lol");
     });
+
+
 });
 
 
