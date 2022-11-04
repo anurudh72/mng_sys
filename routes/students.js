@@ -138,7 +138,7 @@ router.post("/:id/delete", (req, res) => {
 });
 router.post("/:id/update", (req, res) => {
 
-    res.render("../Frontend/updateStudent.ejs", { "sid": req.params.id })
+    res.render("../Frontend/updateStudent.ejs", { sid: req.params.id })
 
 });
 router.post("/:id/update2", (req, res) => {
