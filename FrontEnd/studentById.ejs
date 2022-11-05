@@ -3,12 +3,12 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Instructors</title>
+    <title>Students</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../FrontEnd/instructor.css">
     <style>
         #header {
             position: relative;
@@ -133,31 +133,64 @@
         </div>
     </header>
 
-    <h3 style="padding-top:80px; font-family: 'Poppins', sans-serif; font-weight: bold; color: #e02316; text-align: center;">Go back and select a ID and Department<br> pair from following ^_^ or add one first</h3>
+    <h1 style="padding-top:80px; font-family: 'Poppins', sans-serif; font-weight: bold;">Enrolled Students</h1>
     <br>
     <div class="container">
         <table>
             <tr>
-                <th>ID</th>
+                <th>Admission No.</th>
                 <th>Name</th>
-                <th>Department Name</th>
+                <th>Department </th>
+                <th>Total Credits</th>
+                <th>Instructor ID</th>
+                <th>Course 1</th>
+                <th>Course 2</th>
+                <th style="text-align: center;" colspan="2">Operations</th>
+                <th></th>
             </tr>
 
-            <% instructor.forEach((ins) => {%>
-                <tr>
-                    <td>
-                        <%=ins.id%>
-                    </td>
-                    <td>
-                        <%=ins.name%>
-                    </td>
-                    <td>
-                        <%=ins.department_name%>
-                    </td>
-                </tr>
-                <%})%>
-        </table>
 
+
+            <tr>
+                <td>
+                    20JE000
+                    <%=student.id%>
+                </td>
+                <td>
+                    <%=student.name%>
+                </td>
+                <td>
+                    <%=student.department_name%>
+                </td>
+                <td>
+                    <%=student.total_credits%>
+                </td>
+                <td>
+                    <%=student.instructor_id%>
+                </td>
+                <td>
+                    <%=student.coursea%>
+                </td>
+                <td>
+                    <%=student.courseb%>
+                </td>
+
+                <td>
+                    <form action="/students/<%=student.id%>/delete" method="POST">
+                        <button class="btn btn-danger"> <i class="fas fa-trash-alt" style="padding-right: 5px"></i>
+                Delete</button>
+                    </form>
+                </td>
+                <td>
+                    <form action="/students/<%=student.id%>/update" method="POST">
+                        <button class="btn btn-success"><i class="fa fa-pencil-alt"
+                    aria-hidden="true"></i>
+                    Update</button>
+                    </form>
+                </td>
+            </tr>
+
+        </table>
     </div>
 </body>
 

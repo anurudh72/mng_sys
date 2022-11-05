@@ -4,6 +4,7 @@ const departmentsRouter = require('../routes/departments');
 const instructorsRouter = require('../routes/instructors');
 const sectionsRouter = require('../routes/sections');
 const homeRouter = require('../routes/home');
+const attendanceRouter = require('../routes/attendance');
 
 module.exports = (app) => {
     app.use(bodyparser.json());
@@ -13,4 +14,5 @@ module.exports = (app) => {
     app.use("/departments", departmentsRouter);
     app.use("/instructors", instructorsRouter);
     app.use("/sections", sectionsRouter);
+    app.use("/attendance", attendanceRouter);
 }

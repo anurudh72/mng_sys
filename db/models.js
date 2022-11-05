@@ -15,7 +15,9 @@ const instructorSchema = {
 const studentSchema = {
     name: Joi.string().min(2).max(100).required(),
     total_credits: Joi.number().min(0).required(),
-    department_name: Joi.string().max(50).required()
+    department_name: Joi.string().max(50).required(),
+    course1: Joi.string().max(50).required(),
+    course2: Joi.string().max(50).required()
 };
 
 const sectionSchema = {

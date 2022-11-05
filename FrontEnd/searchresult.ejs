@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>Students</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+    integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" rel="stylesheet">
+  <style>
+    #header {
+      position: relative;
+      left: 0;
+      right: 0;
+      top: 0;
+      z-index: 99;
+      border-bottom: 1px solid rgba(235, 235, 235, 0.25);
+      background-color: #FFF;
+      -webkit-transition: 0.2s all;
+      transition: 0.2s all;
+    }
+
+    #header.transparent-nav {
+      position: absolute;
+      background-color: transparent;
+    }
+
+    #header.transparent-nav .main-menu li a {
+      color: #FFF;
+    }
+
+    .main-menu li a {
+      text-transform: uppercase;
+      -webkit-transition: 0.2s all;
+      transition: 0.2s all;
+    }
+
+    .main-menu li a:hover,
+    .main-menu li a:focus {
+      background-color: transparent;
+    }
+
+    .main-menu li a:after {
+      content: "";
+      display: block;
+      height: 2px;
+      background-color: #FF6700;
+      width: 100%;
+      -webkit-transform: translateY(5px);
+      -ms-transform: translateY(5px);
+      transform: translateY(5px);
+      opacity: 0;
+      -webkit-transition: 0.2s all;
+      transition: 0.2s all;
+    }
+
+    .main-menu li a:hover:after,
+    .main-menu li a:focus:after {
+      -webkit-transform: translateY(0px);
+      -ms-transform: translateY(0px);
+      transform: translateY(0px);
+      opacity: 1;
+    }
+
+    li a,
+    li a:hover {
+      text-decoration: none;
+    }
+
+    table {
+
+      border-collapse: collapse;
+      width: 100%;
+    }
+
+    th,
+    td {
+      text-align: left;
+      padding: 8px;
+    }
+
+    tr:nth-child(even) {
+      background-color: #f2f2f2
+    }
+
+    th {
+      background-color: #1929b2;
+      color: white;
+    }
+
+    h1 {
+      text-align: center;
+    }
+
+    a {
+      color: black;
+    }
+  </style>
+</head>
+</head>
+
+<body style="background-color:rgb(188, 157, 187);">
+
+  <header id="header" class="transparent-nav" style="background-color:rgb(0, 21, 68); ">
+    <div class="container">
+
+      <!-- <div class="navbar-header"> -->
+
+      <!-- <button class="navbar-toggle">
+					<span></span>
+				</button>  
+      </div> -->
+
+      <!-- Navigation -->
+      <nav id="nav" class="navbar-fixed-top">
+        <ul class="main-menu nav navbar-nav navbar-center"
+          style="align-items: center; justify-content: center;display: flex; flex-direction: row; justify-content: space-around;margin:0px">
+
+          <li style="padding-top:15px;padding-bottom:15px;"><a href="/"
+              style="color:cyan; font-size:20px; font-weight: 500; ">Home</a></li>
+          <li style="padding-top:15px;padding-bottom:15px;"><a href="/students"
+              style="color:cyan ; font-size:15px; font-weight: 500;">Students</a></li>
+          <li style="padding-top:15px;padding-bottom:15px;"><a href="/instructors"
+              style="color:cyan ; font-size:15px; font-weight: 500;">Professors</a>
+          </li>
+          <li style="padding-top:15px;padding-bottom:15px;"><a href="/departments"
+              style="color:cyan ; font-size:15px ;font-weight: 500;">Departments</a>
+          </li>
+          <li style="padding-top:15px;padding-bottom:15px;"><a href="/sections"
+              style="color:cyan ; font-size:15px; font-weight: 500;">Courses</a></li>
+          <li style="padding-top:15px;padding-bottom:15px;"><a href="/students/attendance"
+              style="color:cyan ; font-size:15px; font-weight: 500;">Attendance</a></li>
+
+          <!-- <li> <a href="#">Teaches</a> </li> -->
+        </ul>
+      </nav>
+      <!-- /Navigation -->
+
+    </div>
+  </header>
+
+  <h1 style="padding-top:80px; font-family: 'Poppins', sans-serif; font-weight: bold; text-align: center;">Search Results  </h1>
+  <br>
+  <div class="container">
+    <table>
+      <tr>
+        <th>Admission No.</th>
+        <th>Name</th>
+        <th>Department </th>
+        <th>Total Credits</th>
+        <th>Instructor ID</th>
+        <!-- <th></th> -->
+      </tr>
+
+      <% students.forEach((student)=> {%>
+        <tr>
+          <td><a href="/students/<%=student.id%>">
+              20JE000<%=student.id%>
+            </a></td>
+          <td>
+            <%=student.name%>
+          </td>
+          <td>
+            <%=student.department_name%>
+          </td>
+          <td>
+            <%=student.total_credits%>
+          </td>
+          <td>
+            <%=student.instructor_id%>
+          </td>
+        </tr>
+        <%})%>
+    </table>
+  </div>
+</body>
+
+</html>

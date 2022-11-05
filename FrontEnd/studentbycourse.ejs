@@ -5,8 +5,7 @@
     <meta charset="utf-8">
     <title>Students</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
-        integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" rel="stylesheet">
@@ -22,27 +21,27 @@
             -webkit-transition: 0.2s all;
             transition: 0.2s all;
         }
-
+        
         #header.transparent-nav {
             position: absolute;
             background-color: transparent;
         }
-
+        
         #header.transparent-nav .main-menu li a {
             color: #FFF;
         }
-
+        
         .main-menu li a {
             text-transform: uppercase;
             -webkit-transition: 0.2s all;
             transition: 0.2s all;
         }
-
+        
         .main-menu li a:hover,
         .main-menu li a:focus {
             background-color: transparent;
         }
-
+        
         .main-menu li a:after {
             content: "";
             display: block;
@@ -56,7 +55,7 @@
             -webkit-transition: 0.2s all;
             transition: 0.2s all;
         }
-
+        
         .main-menu li a:hover:after,
         .main-menu li a:focus:after {
             -webkit-transform: translateY(0px);
@@ -64,37 +63,36 @@
             transform: translateY(0px);
             opacity: 1;
         }
-
+        
         li a,
         li a:hover {
             text-decoration: none;
         }
-
+        
         table {
-
             border-collapse: collapse;
             width: 100%;
         }
-
+        
         th,
         td {
             text-align: left;
             padding: 8px;
         }
-
+        
         tr:nth-child(even) {
             background-color: #f2f2f2
         }
-
+        
         th {
             background-color: #1929b2;
             color: white;
         }
-
+        
         h1 {
             text-align: center;
         }
-
+        
         a {
             color: black;
         }
@@ -116,23 +114,16 @@
 
             <!-- Navigation -->
             <nav id="nav" class="navbar-fixed-top">
-                <ul class="main-menu nav navbar-nav navbar-center"
-                    style="align-items: center; justify-content: center;display: flex; flex-direction: row; justify-content: space-around;margin:0px">
+                <ul class="main-menu nav navbar-nav navbar-center" style="align-items: center; justify-content: center;display: flex; flex-direction: row; justify-content: space-around;margin:0px">
 
-                    <li style="padding-top:15px;padding-bottom:15px;"><a href="/"
-                            style="color:cyan; font-size:20px; font-weight: 500; ">Home</a></li>
-                    <li style="padding-top:15px;padding-bottom:15px;"><a href="/students"
-                            style="color:cyan ; font-size:15px; font-weight: 500;">Students</a></li>
-                    <li style="padding-top:15px;padding-bottom:15px;"><a href="/instructors"
-                            style="color:cyan ; font-size:15px; font-weight: 500;">Professors</a>
+                    <li style="padding-top:15px;padding-bottom:15px;"><a href="/" style="color:cyan; font-size:20px; font-weight: 500; ">Home</a></li>
+                    <li style="padding-top:15px;padding-bottom:15px;"><a href="/students" style="color:cyan ; font-size:15px; font-weight: 500;">Students</a></li>
+                    <li style="padding-top:15px;padding-bottom:15px;"><a href="/instructors" style="color:cyan ; font-size:15px; font-weight: 500;">Professors</a>
                     </li>
-                    <li style="padding-top:15px;padding-bottom:15px;"><a href="/departments"
-                            style="color:cyan ; font-size:15px ;font-weight: 500;">Departments</a>
+                    <li style="padding-top:15px;padding-bottom:15px;"><a href="/departments" style="color:cyan ; font-size:15px ;font-weight: 500;">Departments</a>
                     </li>
-                    <li style="padding-top:15px;padding-bottom:15px;"><a href="/sections"
-                            style="color:cyan ; font-size:15px; font-weight: 500;">Courses</a></li>
-                    <li style="padding-top:15px;padding-bottom:15px;"><a href="/attendance"
-                            style="color:cyan ; font-size:15px; font-weight: 500;">Attendance</a></li>
+                    <li style="padding-top:15px;padding-bottom:15px;"><a href="/sections" style="color:cyan ; font-size:15px; font-weight: 500;">Courses</a></li>
+                    <li style="padding-top:15px;padding-bottom:15px;"><a href="/attendance" style="color:cyan ; font-size:15px; font-weight: 500;">Attendance</a></li>
 
                     <!-- <li> <a href="#">Teaches</a> </li> -->
                 </ul>
@@ -142,70 +133,59 @@
         </div>
     </header>
 
-    <h1 style="padding-top:80px; font-family: 'Poppins', sans-serif; font-weight: bold;">Enrolled Students</h1>
+    <h1 style="padding-top:80px; font-family: 'Poppins', sans-serif; font-weight: bold; text-align: center;">Students in :
+        <%=sid%>
+    </h1>
     <br>
-    <div style="margin-bottom: 2%; display: flex;
-  align-items: center;
-  justify-content: center;">
-        <button class=" btn btn-success" style="margin-top: 10px; width: 160px; ">
-            <i class="fa fa-search" aria-hidden="true" style="padding-right: 5px; padding-left: 9px;"></i><a
-                href="/students/search1"
-                style="font-size: larger; font-weight: bold; color: rgb(224, 255, 255);">Search</a><i
-                class="fa fa-search" aria-hidden="true" style="padding-right: 9px; padding-left: 5px;"></i></button>
-        <button class=" btn btn-success" style="margin-left:2%; margin-top: 10px;">
-            <i class="fa fa-plus" aria-hidden="true" style="padding-right: 10px; padding-left: 5px;"></i><a
-                href="/students/create" style="font-size: larger; font-weight: bold; color: rgb(224, 255, 255);">Add
-                Student</a></button>
-    </div><br>
     <div class="container">
-        <table style="display: flex;
-        align-items: center;
-        justify-content: center;">
+        <table>
             <tr>
                 <th>Admission No.</th>
                 <th>Name</th>
-                <th>Department </th>
-                <th>Total Credits</th>
-                <th>Instructor ID</th>
+                <th>Course ID</th>
+                <th>Present</th>
+                <th>Total</th>
                 <th style="text-align: center;" colspan="2">Operations</th>
+
                 <!-- <th></th> -->
             </tr>
 
-            <% students.forEach((student)=> {%>
+            <% attendance.forEach((attendanc)=> {%>
                 <tr>
-                    <td><a href="/students/<%=student.id%>">
-                            20JE000<%=student.id%>
-                        </a>
+                    <td><a href="/attendance/<%=attendanc.id%>">
+              20JE000<%=attendanc.id%>
+            </a></td>
+                    <td>
+                        <%=attendanc.name%>
                     </td>
                     <td>
-                        <%=student.name%>
+                        <%=attendanc.course%>
                     </td>
                     <td>
-                        <%=student.department_name%>
+                        <%=attendanc.present%>
                     </td>
                     <td>
-                        <%=student.total_credits%>
+                        <%=attendanc.absent%>
                     </td>
                     <td>
-                        <%=student.instructor_id%>
-                    </td>
-
-                    <td>
-                        <form action="/students/<%=student.id%>/delete" method="POST">
-                            <button class="btn btn-danger"> <i class="fas fa-trash-alt" style="padding-right: 5px"></i>
-                                Delete</button>
+                        <form action='/attendance/<%=attendanc.id%>/present' method="POST">
+                            <input name="id" type="hidden" value="<%=attendanc.id%>" />
+                            <input name="course" type="hidden" value="<%=attendanc.course%>" />
+                            <button class="btn btn-success"><i class="fa fa-hand-paper" aria-hidden="true"></i>
+                    Present</button>
                         </form>
                     </td>
                     <td>
-                        <form action="/students/<%=student.id%>/update" method="POST">
-                            <button class="btn btn-success"><i class="fa fa-pencil-alt" aria-hidden="true"></i>
-                                Update</button>
+                        <form action='/attendance/<%=attendanc.id%>/absent' method="POST">
+                            <input name="id" type="hidden" value="<%=attendanc.id%>" />
+                            <input name="course" type="hidden" value="<%=attendanc.course%>" />
+                            <button class="btn btn-danger"> <i class="fa fa-times" aria-hidden="true"></i>
+                Absent</button>
                         </form>
                     </td>
                 </tr>
                 <%})%>
         </table>
-
     </div>
 </body>
 

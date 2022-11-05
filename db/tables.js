@@ -24,7 +24,9 @@ module.exports.studentColumns = {
     name: "name",
     total_credits: "total_credits",
     instructor_id: "instructor_id",
-    department_name: "department_name"
+    department_name: "department_name",
+    coursea: "coursea",
+    courseb: "courseb"
 };
 
 module.exports.sectionColumns = {
@@ -37,6 +39,7 @@ module.exports.sectionColumns = {
 module.exports.attendanceColumns = {
     id: "id",
     name: "name",
+    course: "course",
     present: "present",
     absent: "absent"
 };

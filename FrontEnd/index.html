@@ -1,687 +1,672 @@
 <!DOCTYPE html>
 <html lang="en">
 <!-- alpha gamma -->
+
 <head>
-	<meta charset="utf-8">
-	<link rel="icon"  href = "data:image/png;base64,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">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta charset="utf-8">
+    <link rel="icon" href="data:image/png;base64,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">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
-	<title>IIT ISM Academic Administration</title>
+    <title>IIT ISM Academic Administration</title>
 
-	<!-- Google font -->
-	<link href="https://fonts.googleapis.com/css?family=Lato:700%7CMontserrat:400,600" rel="stylesheet">
+    <!-- Google font -->
+    <link href="https://fonts.googleapis.com/css?family=Lato:700%7CMontserrat:400,600" rel="stylesheet">
 
-	<!-- Bootstrap -->
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
-		integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-	<!-- Font Awesome Icon -->
-	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
-		integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <!-- Font Awesome Icon -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 
-	<!-- Custom stlylesheet -->
-	<style media="screen">
-		body {
-			font-family: 'Montserrat', sans-serif;
-			font-size: 15px;
-			font-weight: 400;
-			color: #798696;
-			overflow-x: hidden;
-		}
-
-
-		a {
-			font-family: 'Lato', sans-serif;
-			color: #374050;
-			font-weight: 700;
-		}
-
-		a:hover,
-		a:focus {
-			text-decoration: none;
-			outline: none;
-			color: #374050;
-			opacity: 0.9;
-		}
-
-		ul,
-		ol {
-			margin: 0;
-			padding: 0;
-			list-style: none
-		}
-
-		.white-text {
-			color: #FFF;
-		}
-
-		.section {
-			position: relative;
-			padding-top: 80px;
-			padding-bottom: 80px;
-		}
-
-		.section-hr {
-			margin-top: 80px;
-			margin-bottom: 80px;
-			border-color: #EBEBEB;
-		}
-
-		.section-header {
-			margin-bottom: 40px;
-		}
-
-		/* --- Background Image --- */
-		.bg-image {
-			position: absolute;
-			left: 0;
-			right: 0;
-			top: 0;
-			bottom: 0;
-			background-position: center;
-			background-size: cover;
-		}
-
-		.bg-image.bg-parallax {
-			background-attachment: fixed;
-		}
-
-		.bg-image.overlay:after {
-			content: "";
-			position: absolute;
-			left: 0;
-			right: 0;
-			top: 0;
-			bottom: 0;
-			background-image: -webkit-gradient(linear, left top, left bottom, from(#374050), to(#798696));
-			background-image: linear-gradient(to bottom, #374050 0%, #798696 100%);
-			opacity: 0.7;
-		}
-
-		/* --- Buttons --- */
-		.main-button {
-			position: relative;
-			display: inline-block;
-			padding: 10px 30px;
-			background-color: #FF6700;
-			border: 2px solid transparent;
-			border-radius: 40px;
-			color: #FFF;
-			-webkit-transition: 0.2s all;
-			transition: 0.2s all;
-		}
-
-		.main-button:hover,
-		.main-button:focus {
-			background-color: #fff;
-			border: 2px solid #FF6700;
-			color: #FF6700;
-		}
-
-		.main-button.icon-button:hover,
-		.main-button.icon-button:focus {
-			padding-right: 45px;
-		}
-
-		.main-button.icon-button:after {
-			content: "\f178";
-			font-family: FontAwesome;
-			position: absolute;
-			width: 30px;
-			right: 15px;
-			text-align: center;
-			opacity: 0;
-			-webkit-transition: 0.2s all;
-			transition: 0.2s all;
-		}
-
-		.main-button.icon-button:hover:after,
-		.main-button.icon-button:focus:after {
-			opacity: 1;
-		}
-
-		textarea {
-			padding: 10px 15px;
-		}
-
-
-		.navbar-brand {
-			padding: 0;
-		}
-
-		.navbar-brand .logo {
-			margin-top: 10px;
-			display: inline-block;
-		}
-
-		.navbar-brand .logo>img {
-			max-height: 30px;
-		}
-
-		@media only screen and (max-width: 767px) {
-			.navbar-brand {
-				margin-left: 15px;
-			}
-		}
-
-		/*------------------------------------*\
+    <!-- Custom stlylesheet -->
+    <style media="screen">
+        body {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 15px;
+            font-weight: 400;
+            color: #798696;
+            overflow-x: hidden;
+        }
+        
+        a {
+            font-family: 'Lato', sans-serif;
+            color: #374050;
+            font-weight: 700;
+        }
+        
+        a:hover,
+        a:focus {
+            text-decoration: none;
+            outline: none;
+            color: #374050;
+            opacity: 0.9;
+        }
+        
+        ul,
+        ol {
+            margin: 0;
+            padding: 0;
+            list-style: none
+        }
+        
+        .white-text {
+            color: #FFF;
+        }
+        
+        .section {
+            position: relative;
+            padding-top: 80px;
+            padding-bottom: 80px;
+        }
+        
+        .section-hr {
+            margin-top: 80px;
+            margin-bottom: 80px;
+            border-color: #EBEBEB;
+        }
+        
+        .section-header {
+            margin-bottom: 40px;
+        }
+        /* --- Background Image --- */
+        
+        .bg-image {
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            background-position: center;
+            background-size: cover;
+        }
+        
+        .bg-image.bg-parallax {
+            background-attachment: fixed;
+        }
+        
+        .bg-image.overlay:after {
+            content: "";
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            background-image: -webkit-gradient(linear, left top, left bottom, from(#374050), to(#798696));
+            background-image: linear-gradient(to bottom, #374050 0%, #798696 100%);
+            opacity: 0.7;
+        }
+        /* --- Buttons --- */
+        
+        .main-button {
+            position: relative;
+            display: inline-block;
+            padding: 10px 30px;
+            background-color: #FF6700;
+            border: 2px solid transparent;
+            border-radius: 40px;
+            color: #FFF;
+            -webkit-transition: 0.2s all;
+            transition: 0.2s all;
+        }
+        
+        .main-button:hover,
+        .main-button:focus {
+            background-color: #fff;
+            border: 2px solid #FF6700;
+            color: #FF6700;
+        }
+        
+        .main-button.icon-button:hover,
+        .main-button.icon-button:focus {
+            padding-right: 45px;
+        }
+        
+        .main-button.icon-button:after {
+            content: "\f178";
+            font-family: FontAwesome;
+            position: absolute;
+            width: 30px;
+            right: 15px;
+            text-align: center;
+            opacity: 0;
+            -webkit-transition: 0.2s all;
+            transition: 0.2s all;
+        }
+        
+        .main-button.icon-button:hover:after,
+        .main-button.icon-button:focus:after {
+            opacity: 1;
+        }
+        
+        textarea {
+            padding: 10px 15px;
+        }
+        
+        .navbar-brand {
+            padding: 0;
+        }
+        
+        .navbar-brand .logo {
+            margin-top: 10px;
+            display: inline-block;
+        }
+        
+        .navbar-brand .logo>img {
+            max-height: 30px;
+        }
+        
+        @media only screen and (max-width: 767px) {
+            .navbar-brand {
+                margin-left: 15px;
+            }
+        }
+        /*------------------------------------*\
 	Navigation
 \*------------------------------------*/
-		#header {
-			position: relative;
-			left: 0;
-			right: 0;
-			top: 0;
-			z-index: 99;
-			border-bottom: 1px solid rgba(235, 235, 235, 0.25);
-			background-color: #FFF;
-			-webkit-transition: 0.2s all;
-			transition: 0.2s all;
-		}
-
-		#header.transparent-nav {
-			position: absolute;
-			background-color: transparent;
-		}
-
-		#header.transparent-nav .main-menu li a {
-			color: #FFF;
-		}
-
-		.main-menu li a {
-			text-transform: uppercase;
-			-webkit-transition: 0.2s all;
-			transition: 0.2s all;
-		}
-
-		.main-menu li a:hover,
-		.main-menu li a:focus {
-			background-color: transparent;
-		}
-
-		.main-menu li a:after {
-			content: "";
-			display: block;
-			height: 2px;
-			background-color: #FF6700;
-			width: 100%;
-			-webkit-transform: translateY(5px);
-			-ms-transform: translateY(5px);
-			transform: translateY(5px);
-			opacity: 0;
-			-webkit-transition: 0.2s all;
-			transition: 0.2s all;
-		}
-
-		.main-menu li a:hover:after,
-		.main-menu li a:focus:after {
-			-webkit-transform: translateY(0px);
-			-ms-transform: translateY(0px);
-			transform: translateY(0px);
-			opacity: 1;
-		}
-
-		@media only screen and (max-width: 767px) {
-			#nav {
-				position: fixed;
-				top: 0;
-				right: 0;
-				width: 0%;
-				max-width: 250px;
-				height: 100vh;
-				background: #FFF;
-				-webkit-box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.1);
-				box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.1);
-				padding-top: 80px;
-				padding-bottom: 40px;
-				-webkit-transform: translateX(100%);
-				-ms-transform: translateX(100%);
-				transform: translateX(100%);
-				-webkit-transition: 0.4s all cubic-bezier(.77, 0, .18, 1);
-				transition: 0.4s all cubic-bezier(.77, 0, .18, 1);
-				z-index: 9;
-			}
-
-			#header.nav-collapse #nav {
-				width: 100%;
-				-webkit-transform: translateX(0%);
-				-ms-transform: translateX(0%);
-				transform: translateX(0%);
-			}
-
-			.main-menu {
-				margin: 0;
-			}
-
-			.main-menu li a {
-				color: #374050 !important;
-				display: inline-block;
-				margin-left: 40px;
-			}
-		}
-
-		/* -- Mobile Toggle Btn -- */
-		.navbar-toggle {
-			position: fixed;
-			right: 0;
-			padding: 0;
-			height: 40px;
-			width: 40px;
-			margin-top: 5px;
-			z-index: 99;
-		}
-
-		.navbar-toggle>span {
-			position: absolute;
-			top: 50%;
-			left: 50%;
-			-webkit-transform: translate(-50%, -50%);
-			-ms-transform: translate(-50%, -50%);
-			transform: translate(-50%, -50%);
-			-webkit-transition: 0.2s background;
-			transition: 0.2s background;
-		}
-
-		.navbar-toggle>span:before,
-		.navbar-toggle>span:after {
-			content: '';
-			position: absolute;
-			left: 0;
-			-webkit-transition: 0.2s -webkit-transform;
-			transition: 0.2s -webkit-transform;
-			transition: 0.2s transform;
-			transition: 0.2s transform, 0.2s -webkit-transform;
-		}
-
-		.navbar-toggle>span,
-		.navbar-toggle>span:before,
-		.navbar-toggle>span:after {
-			height: 2px;
-			width: 25px;
-			background-color: #374050;
-		}
-
-		.navbar-toggle>span:before {
-			top: -10px;
-		}
-
-		.navbar-toggle>span:after {
-			top: 10px;
-		}
-
-		#header.nav-collapse .navbar-toggle>span {
-			background: transparent;
-		}
-
-		#header.nav-collapse .navbar-toggle>span:before {
-			-webkit-transform: translateY(10px) rotate(45deg);
-			-ms-transform: translateY(10px) rotate(45deg);
-			transform: translateY(10px) rotate(45deg);
-		}
-
-		#header.nav-collapse .navbar-toggle>span:after {
-			-webkit-transform: translateY(-10px) rotate(-45deg);
-			-ms-transform: translateY(-10px) rotate(-45deg);
-			transform: translateY(-10px) rotate(-45deg);
-		}
-
-		/*------------------------------------*\
+        
+        #header {
+            position: relative;
+            left: 0;
+            right: 0;
+            top: 0;
+            z-index: 99;
+            border-bottom: 1px solid rgba(235, 235, 235, 0.25);
+            background-color: #FFF;
+            -webkit-transition: 0.2s all;
+            transition: 0.2s all;
+        }
+        
+        #header.transparent-nav {
+            position: absolute;
+            background-color: transparent;
+        }
+        
+        #header.transparent-nav .main-menu li a {
+            color: #FFF;
+        }
+        
+        .main-menu li a {
+            text-transform: uppercase;
+            -webkit-transition: 0.2s all;
+            transition: 0.2s all;
+        }
+        
+        .main-menu li a:hover,
+        .main-menu li a:focus {
+            background-color: transparent;
+        }
+        
+        .main-menu li a:after {
+            content: "";
+            display: block;
+            height: 2px;
+            background-color: #FF6700;
+            width: 100%;
+            -webkit-transform: translateY(5px);
+            -ms-transform: translateY(5px);
+            transform: translateY(5px);
+            opacity: 0;
+            -webkit-transition: 0.2s all;
+            transition: 0.2s all;
+        }
+        
+        .main-menu li a:hover:after,
+        .main-menu li a:focus:after {
+            -webkit-transform: translateY(0px);
+            -ms-transform: translateY(0px);
+            transform: translateY(0px);
+            opacity: 1;
+        }
+        
+        @media only screen and (max-width: 767px) {
+            #nav {
+                position: fixed;
+                top: 0;
+                right: 0;
+                width: 0%;
+                max-width: 250px;
+                height: 100vh;
+                background: #FFF;
+                -webkit-box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.1);
+                box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.1);
+                padding-top: 80px;
+                padding-bottom: 40px;
+                -webkit-transform: translateX(100%);
+                -ms-transform: translateX(100%);
+                transform: translateX(100%);
+                -webkit-transition: 0.4s all cubic-bezier(.77, 0, .18, 1);
+                transition: 0.4s all cubic-bezier(.77, 0, .18, 1);
+                z-index: 9;
+            }
+            #header.nav-collapse #nav {
+                width: 100%;
+                -webkit-transform: translateX(0%);
+                -ms-transform: translateX(0%);
+                transform: translateX(0%);
+            }
+            .main-menu {
+                margin: 0;
+            }
+            .main-menu li a {
+                color: #374050 !important;
+                display: inline-block;
+                margin-left: 40px;
+            }
+        }
+        /* -- Mobile Toggle Btn -- */
+        
+        .navbar-toggle {
+            position: fixed;
+            right: 0;
+            padding: 0;
+            height: 40px;
+            width: 40px;
+            margin-top: 5px;
+            z-index: 99;
+        }
+        
+        .navbar-toggle>span {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            -webkit-transform: translate(-50%, -50%);
+            -ms-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+            -webkit-transition: 0.2s background;
+            transition: 0.2s background;
+        }
+        
+        .navbar-toggle>span:before,
+        .navbar-toggle>span:after {
+            content: '';
+            position: absolute;
+            left: 0;
+            -webkit-transition: 0.2s -webkit-transform;
+            transition: 0.2s -webkit-transform;
+            transition: 0.2s transform;
+            transition: 0.2s transform, 0.2s -webkit-transform;
+        }
+        
+        .navbar-toggle>span,
+        .navbar-toggle>span:before,
+        .navbar-toggle>span:after {
+            height: 2px;
+            width: 25px;
+            background-color: #374050;
+        }
+        
+        .navbar-toggle>span:before {
+            top: -10px;
+        }
+        
+        .navbar-toggle>span:after {
+            top: 10px;
+        }
+        
+        #header.nav-collapse .navbar-toggle>span {
+            background: transparent;
+        }
+        
+        #header.nav-collapse .navbar-toggle>span:before {
+            -webkit-transform: translateY(10px) rotate(45deg);
+            -ms-transform: translateY(10px) rotate(45deg);
+            transform: translateY(10px) rotate(45deg);
+        }
+        
+        #header.nav-collapse .navbar-toggle>span:after {
+            -webkit-transform: translateY(-10px) rotate(-45deg);
+            -ms-transform: translateY(-10px) rotate(-45deg);
+            transform: translateY(-10px) rotate(-45deg);
+        }
+        /*------------------------------------*\
 	Hero Area
 \*------------------------------------*/
-		.hero-area {
-			position: relative;
-			padding-top: 80px;
-			padding-bottom: 80px;
-		}
-
-		#home.hero-area {
-			height: calc(100vh - 80px);
-			padding-top: 0px;
-			padding-bottom: 0px;
-		}
-
-		.home-wrapper {
-			position: absolute;
-			top: 50%;
-			-webkit-transform: translateY(-50%);
-			-ms-transform: translateY(-50%);
-			transform: translateY(-50%);
-			left: 0;
-			right: 0;
-		}
-
-		/* -- Breadcrumb -- */
-		.hero-area-tree li {
-			display: inline-block;
-			font-family: 'Lato', sans-serif;
-			font-weight: 600;
-			font-size: 14px;
-			color: rgba(255, 255, 255, 0.8);
-		}
-
-		.hero-area-tree li>a {
-			color: rgba(255, 255, 255, 0.8);
-		}
-
-		.hero-area-tree li+li:before {
-			content: "/";
-			display: inline-block;
-			margin: 0px 5px;
-			color: rgba(235, 235, 235, 0.25);
-		}
-
-		/*------------------------------------*\
+        
+        .hero-area {
+            position: relative;
+            padding-top: 80px;
+            padding-bottom: 80px;
+        }
+        
+        #home.hero-area {
+            height: calc(100vh - 80px);
+            padding-top: 0px;
+            padding-bottom: 0px;
+        }
+        
+        .home-wrapper {
+            position: absolute;
+            top: 50%;
+            -webkit-transform: translateY(-50%);
+            -ms-transform: translateY(-50%);
+            transform: translateY(-50%);
+            left: 0;
+            right: 0;
+        }
+        /* -- Breadcrumb -- */
+        
+        .hero-area-tree li {
+            display: inline-block;
+            font-family: 'Lato', sans-serif;
+            font-weight: 600;
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.8);
+        }
+        
+        .hero-area-tree li>a {
+            color: rgba(255, 255, 255, 0.8);
+        }
+        
+        .hero-area-tree li+li:before {
+            content: "/";
+            display: inline-block;
+            margin: 0px 5px;
+            color: rgba(235, 235, 235, 0.25);
+        }
+        /*------------------------------------*\
 	About & Why Us (Feature)
 \*------------------------------------*/
-		/* -- Feature -- */
-		.feature {
-			position: relative;
-		}
-
-		.feature+.feature {
-			margin-top: 40px;
-		}
-
-		.feature .feature-icon {
-			position: absolute;
-			left: 0;
-			top: 0;
-			width: 80px;
-			height: 80px;
-			line-height: 80px;
-			text-align: center;
-			border-radius: 50%;
-			font-size: 30px;
-			border: 1px solid #EBEBEB;
-			color: #FF6700;
-		}
-
-		.feature-content {
-			padding-left: 100px;
-		}
-
-		.about-img {
-			margin-top: 40px;
-		}
-
-		.about-img>img {
-			width: 100%;
-		}
-
-		.course {
-			margin-top: 20px;
-			margin-bottom: 20px;
-		}
-
-		.course .course-img {
-			position: relative;
-			display: block;
-			margin-bottom: 20px;
-			border-radius: 4px;
-			overflow: hidden;
-		}
-
-		.course .course-img>img {
-			width: 100%;
-		}
-
-		.course-img:after {
-			content: "";
-			position: absolute;
-			left: 0;
-			right: 0;
-			bottom: 0;
-			top: 0;
-			background-color: #FF6700;
-			opacity: 0;
-			-webkit-transition: 0.2s opacity;
-			transition: 0.2s opacity;
-		}
-
-		.course .course-img:hover:after {
-			opacity: 0.7;
-		}
-
-		.course .course-img .course-link-icon {
-			position: absolute;
-			left: 50%;
-			top: 50%;
-			-webkit-transform: translate(-50%, calc(-50% - 15px));
-			-ms-transform: translate(-50%, calc(-50% - 15px));
-			transform: translate(-50%, calc(-50% - 15px));
-			width: 40px;
-			height: 40px;
-			line-height: 40px;
-			text-align: center;
-			border: 2px solid #fff;
-			color: #fff;
-			border-radius: 50%;
-			opacity: 0;
-			z-index: 10;
-			-webkit-transition: 0.2s all;
-			transition: 0.2s all;
-		}
-
-		.course .course-img:hover .course-link-icon {
-			-webkit-transform: translate(-50%, -50%);
-			-ms-transform: translate(-50%, -50%);
-			transform: translate(-50%, -50%);
-			opacity: 1;
-		}
-
-		.course .course-title {
-			display: block;
-			height: 42px;
-		}
-
-		.course .course-details {
-			margin-top: 20px;
-			padding-top: 10px;
-			border-top: 1px solid #EBEBEB;
-		}
-
-		.course .course-details .course-price {
-			float: right;
-		}
-
-		.course .course-details .course-price.course-free {
-			color: green;
-		}
-
-		.course .course-details .course-price.course-premium {
-			color: #FF6700;
-		}
-
-		#courses .center-btn {
-			text-align: center;
-			margin-top: 40px;
-		}
-	</style>
+        /* -- Feature -- */
+        
+        .feature {
+            position: relative;
+        }
+        
+        .feature+.feature {
+            margin-top: 40px;
+        }
+        
+        .feature .feature-icon {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 80px;
+            height: 80px;
+            line-height: 80px;
+            text-align: center;
+            border-radius: 50%;
+            font-size: 30px;
+            border: 1px solid #EBEBEB;
+            color: #FF6700;
+        }
+        
+        .feature-content {
+            padding-left: 100px;
+        }
+        
+        .about-img {
+            margin-top: 40px;
+        }
+        
+        .about-img>img {
+            width: 100%;
+        }
+        
+        .course {
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .course .course-img {
+            position: relative;
+            display: block;
+            margin-bottom: 20px;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+        
+        .course .course-img>img {
+            width: 100%;
+        }
+        
+        .course-img:after {
+            content: "";
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            top: 0;
+            background-color: #FF6700;
+            opacity: 0;
+            -webkit-transition: 0.2s opacity;
+            transition: 0.2s opacity;
+        }
+        
+        .course .course-img:hover:after {
+            opacity: 0.7;
+        }
+        
+        .course .course-img .course-link-icon {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            -webkit-transform: translate(-50%, calc(-50% - 15px));
+            -ms-transform: translate(-50%, calc(-50% - 15px));
+            transform: translate(-50%, calc(-50% - 15px));
+            width: 40px;
+            height: 40px;
+            line-height: 40px;
+            text-align: center;
+            border: 2px solid #fff;
+            color: #fff;
+            border-radius: 50%;
+            opacity: 0;
+            z-index: 10;
+            -webkit-transition: 0.2s all;
+            transition: 0.2s all;
+        }
+        
+        .course .course-img:hover .course-link-icon {
+            -webkit-transform: translate(-50%, -50%);
+            -ms-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+            opacity: 1;
+        }
+        
+        .course .course-title {
+            display: block;
+            height: 42px;
+        }
+        
+        .course .course-details {
+            margin-top: 20px;
+            padding-top: 10px;
+            border-top: 1px solid #EBEBEB;
+        }
+        
+        .course .course-details .course-price {
+            float: right;
+        }
+        
+        .course .course-details .course-price.course-free {
+            color: green;
+        }
+        
+        .course .course-details .course-price.course-premium {
+            color: #FF6700;
+        }
+        
+        #courses .center-btn {
+            text-align: center;
+            margin-top: 40px;
+        }
+    </style>
 
 </head>
 
 <body>
 
-	<!-- Header -->
-	<header id="header" class="transparent-nav" style="background-color:rgb(0, 21, 68); ">
-		<div class="container">
+    <!-- Header -->
+    <header id="header" class="transparent-nav" style="background-color:rgb(0, 21, 68); ">
+        <div class="container">
 
-			<div class="navbar-header">
-				<div class="navbar-brand">
-				</div>
+            <div class="navbar-header">
+                <div class="navbar-brand">
+                </div>
 
-				<!-- Mobile toggle -->
-				<button class="navbar-toggle">
+                <!-- Mobile toggle -->
+                <button class="navbar-toggle">
 					<span></span>
 				</button>
-				<!-- /Mobile toggle -->
-			</div>
+                <!-- /Mobile toggle -->
+            </div>
 
-			<!-- Navigation -->
-			<nav id="nav" class="navbar-fixed-top">
-				<ul class="main-menu nav navbar-nav navbar-center"
-					style="align-items: center; justify-content: center;">
-					<li><a href="/" style="color:cyan; font-size:20px; padding-left: 80px">Home</a></li>
-					<li><a href="/students" style="color:cyan ; font-size:15px; padding-left: 80px;">Students</a></li>
-					<li><a href="/instructors" style="color:cyan ; font-size:15px; padding-left: 80px">Professors</a>
-					</li>
-					<li><a href="/departments" style="color:cyan ; font-size:15px ;padding-left: 80px">Departments</a>
-					</li>
-					<li><a href="/sections" style="color:cyan ; font-size:15px; padding-left: 80px;">Courses</a></li>
-					<li><a href="/students/attendance" style="color:cyan ; font-size:15px; padding-left: 80px;">Attendance</a></li>
-					
-					<!-- <li> <a href="#">Teaches</a> </li> -->
-				</ul>
-			</nav>
-			<!-- /Navigation -->
+            <!-- Navigation -->
+            <nav id="nav" class="navbar-fixed-top">
+                <ul class="main-menu nav navbar-nav navbar-center" style="align-items: center; justify-content: center;">
+                    <li><a href="/" style="color:cyan; font-size:20px; padding-left: 80px">Home</a></li>
+                    <li><a href="/students" style="color:cyan ; font-size:15px; padding-left: 80px;">Students</a></li>
+                    <li><a href="/instructors" style="color:cyan ; font-size:15px; padding-left: 80px">Professors</a>
+                    </li>
+                    <li><a href="/departments" style="color:cyan ; font-size:15px ;padding-left: 80px">Departments</a>
+                    </li>
+                    <li><a href="/sections" style="color:cyan ; font-size:15px; padding-left: 80px;">Courses</a></li>
+                    <li><a href="/attendance" style="color:cyan ; font-size:15px; padding-left: 80px;">Attendance</a></li>
 
-		</div>
-	</header>
-	<!-- /Header -->
+                    <!-- <li> <a href="#">Teaches</a> </li> -->
+                </ul>
+            </nav>
+            <!-- /Navigation -->
 
-	<!-- Home -->
-	<div id="home" class="hero-area" style="background-color:rgb(67, 5, 65); ">
+        </div>
+    </header>
+    <!-- /Header -->
 
-		<!-- Backgound Image -->
-		<!-- <div class="bg-image bg-parallax overlay"
+    <!-- Home -->
+    <div id="home" class="hero-area" style="background-color:rgb(67, 5, 65); ">
+
+        <!-- Backgound Image -->
+        <!-- <div class="bg-image bg-parallax overlay"
 			style="background-image:url(http://thepost.net.ph/app/uploads/2021/09/CHMSC-VACCINATES-STUDENTS-AND-EMPLOYEES.jpg); width: 2000px;">
 		</div> -->
-		<!-- /Backgound Image -->
+        <!-- /Backgound Image -->
 
-		<div class="home-wrapper" style="width: 100%">
-			<!-- <div class="container" style="width: 100%"> -->
-			<!-- <div class="row" style="width: 100%"> -->
-			<div class="col-md-8" style="width: 100%; padding-left: 5%;">
+        <div class="home-wrapper" style="width: 100%">
+            <!-- <div class="container" style="width: 100%"> -->
+            <!-- <div class="row" style="width: 100%"> -->
+            <div class="col-md-8" style="width: 100%; padding-left: 5%;">
 
-				<!-- <div class="about-img">
+                <!-- <div class="about-img">
 							<img src="https://assets.telegraphindia.com/telegraph/09Dhanranking66c_174101.jpg" style="height:150px; width: auto; align-items;:center"  alt="">
 						</div> -->
 
-				<h2 class="white-text"
-					style="padding-top:4%;align-items: center; justify-content: center; text-align: center; color: rgb(154, 233, 170);">
-					IIT ISM Academic Administration</h2>
-				<img src="https://people.iitism.ac.in/~download/images/academic/postgraduates.jpg" alt="ndgj"
-					style="height: 210px; padding-top: 7px; padding-bottom: 10px; padding-left: 36%;">
-				<p class="lead white-text" style="font-size: 17px;">The Indian Institute of Technology (Indian
-					School of Mines) constituted under Institute of Technology Act, 1961 is administered through
-					IIT Council-the apex body, Government of India under the Chairmanship of Honourable
-					Minister, MoE for uniform and smooth governance of Pan-IIT in our country.</p>
-				<p class="lead white-text" style="font-size: 17px;">This website is made with aim to provide
-					management of administration for enrollment, updation, deletion and getting data for
-					faculties, students and departments. This is a CRUD(Create Read Update Delete) application
-					made using SQLlite, HTMl, CSS, Javascript, NodeJS, ReactJS!!!!</p>
-				<!-- <div class="col-md-6">
+                <h2 class="white-text" style="padding-top:4%;align-items: center; justify-content: center; text-align: center; color: rgb(154, 233, 170);">
+                    IIT ISM Academic Administration</h2>
+                <img src="https://people.iitism.ac.in/~download/images/academic/postgraduates.jpg" alt="ndgj" style="height: 210px; padding-top: 7px; padding-bottom: 10px; padding-left: 36%;">
+                <p class="lead white-text" style="font-size: 17px;">The Indian Institute of Technology (Indian School of Mines) constituted under Institute of Technology Act, 1961 is administered through IIT Council-the apex body, Government of India under the Chairmanship of Honourable Minister, MoE for
+                    uniform and smooth governance of Pan-IIT in our country.</p>
+                <p class="lead white-text" style="font-size: 17px;">This website is made with aim to provide management of administration for enrollment, updation, deletion and getting data for faculties, students and departments. This is a CRUD(Create Read Update Delete) application made using SQLlite,
+                    HTMl, CSS, Javascript, NodeJS, ReactJS!!!!</p>
+                <!-- <div class="col-md-6">
 						</div> -->
-			</div>
-		</div>
-		<!-- </div> -->
-		<!-- </div> -->
+            </div>
+        </div>
+        <!-- </div> -->
+        <!-- </div> -->
 
-	</div>
+    </div>
 
-	<!-- About -->
-	<div id="about" class="section" style="background-color:rgb(67, 5, 65); ">
+    <!-- About -->
+    <div id="about" class="section" style="background-color:rgb(67, 5, 65); ">
 
-		<!-- container -->
-		<div class="container">
+        <!-- container -->
+        <div class="container">
 
-			<!-- row -->
-			<div class="row">
+            <!-- row -->
+            <div class="row">
 
-				<div class="col-md-6">
-					<div class="section-header">
-						<h2 style="color: rgb(154, 233, 170);">Say Hello to ISM</h2>
-						<p class="lead" style="color:white">This database is for managing data for students, faculties,
-							courses offered, departments and their related information like attendance and number of
-							enrollments.</p>
-					</div>
+                <div class="col-md-6">
+                    <div class="section-header">
+                        <h2 style="color: rgb(154, 233, 170);">Say Hello to ISM</h2>
+                        <p class="lead" style="color:white">This database is for managing data for students, faculties, courses offered, departments and their related information like attendance and number of enrollments.
+                        </p>
+                    </div>
 
-					<!-- feature -->
-					<div class="feature">
-						<i class="feature-icon fa fa-users"></i>
-						<div class="feature-content">
-							<a href="/sections">
-								<h4 style="color: rgb(154, 233, 170);">Students</h4>
-							</a>
-							<p style="color:white">You can view and edit the details about students enrolled.</p>
-						</div>
-					</div>
-					<!-- /feature -->
+                    <!-- feature -->
+                    <div class="feature">
+                        <i class="feature-icon fa fa-users"></i>
+                        <div class="feature-content">
+                            <a href="/sections">
+                                <h4 style="color: rgb(154, 233, 170);">Students</h4>
+                            </a>
+                            <p style="color:white">You can view and edit the details about students enrolled.</p>
+                        </div>
+                    </div>
+                    <!-- /feature -->
 
-					<!-- feature -->
-					<div class="feature">
-						<i class="feature-icon fa fa-user-circle" aria-hidden="true"></i>
-						<div class="feature-content">
-							<a href="/instructors">
-								<h4 style="color: rgb(154, 233, 170);"> Professors</h4>
-							</a>
-							<p style="color:white">You can see the details about instructors teaching in the college.
-							</p>
-						</div>
-					</div>
-					<!-- /feature -->
+                    <!-- feature -->
+                    <div class="feature">
+                        <i class="feature-icon fa fa-user-circle" aria-hidden="true"></i>
+                        <div class="feature-content">
+                            <a href="/instructors">
+                                <h4 style="color: rgb(154, 233, 170);"> Professors</h4>
+                            </a>
+                            <p style="color:white">You can see the details about instructors teaching in the college.
+                            </p>
+                        </div>
+                    </div>
+                    <!-- /feature -->
 
-					<!-- feature -->
-					<div class="feature">
-						<i class="feature-icon fa fa-building" aria-hidden="true"></i>
-						<div class="feature-content">
-							<a href="/departments">
-								<h4 style="color: rgb(154, 233, 170);">Departments </h4>
-							</a>
-							<p style="color:white">Click to view the list of departments in the college.</p>
-						</div>
-					</div>
-					<!-- /feature -->
-
-
-					<!-- feature -->
-					<div class="feature">
-						<i class="feature-icon fa fa-book" aria-hidden="true"></i>
-						<div class="feature-content">
-							<a href="/instructors">
-								<h4 style="color: rgb(154, 233, 170);">Courses</h4>
-							</a>
-							<p style="color:white">You can see and edit the details about courses offered.</p>
-						</div>
-					</div>
-					<!-- /feature -->
-
-				</div>
-
-				<div class="col-md-6">
-					<div class="about-img">
-						<img src="https://assets.telegraphindia.com/telegraph/09Dhanranking66c_174101.jpg"
-							style="height:550px" alt="">
-					</div>
-				</div>
-			</div>
-			<!-- row -->
-
-		</div>
-		<!-- container -->
-	</div>
-	<!-- /About -->
-
-	<!-- Courses -->
-	<!-- <div id="courses" class="section"> -->
-
-	<!-- container -->
-	<!-- <div class="container"> -->
-
-	<!-- row -->
-
-	<!-- /Footer -->
-
-	<!-- preloader -->
-	<!-- <div id='preloader'><div class='preloader'></div></div> -->
-	<!-- /preloader -->
+                    <!-- feature -->
+                    <div class="feature">
+                        <i class="feature-icon fa fa-building" aria-hidden="true"></i>
+                        <div class="feature-content">
+                            <a href="/departments">
+                                <h4 style="color: rgb(154, 233, 170);">Departments </h4>
+                            </a>
+                            <p style="color:white">Click to view the list of departments in the college.</p>
+                        </div>
+                    </div>
+                    <!-- /feature -->
 
 
-	<!-- jQuery Plugins -->
-	<script type="text/javascript" src="js/jquery.min.js"></script>
-	<script type="text/javascript" src="js/bootstrap.min.js"></script>
-	<script type="text/javascript" src="js/main.js"></script>
+                    <!-- feature -->
+                    <div class="feature">
+                        <i class="feature-icon fa fa-book" aria-hidden="true"></i>
+                        <div class="feature-content">
+                            <a href="/instructors">
+                                <h4 style="color: rgb(154, 233, 170);">Courses</h4>
+                            </a>
+                            <p style="color:white">You can see and edit the details about courses offered.</p>
+                        </div>
+                    </div>
+                    <!-- /feature -->
+
+                </div>
+
+                <div class="col-md-6">
+                    <div class="about-img">
+                        <img src="https://assets.telegraphindia.com/telegraph/09Dhanranking66c_174101.jpg" style="height:550px" alt="">
+                    </div>
+                </div>
+            </div>
+            <!-- row -->
+
+        </div>
+        <!-- container -->
+    </div>
+    <!-- /About -->
+
+    <!-- Courses -->
+    <!-- <div id="courses" class="section"> -->
+
+    <!-- container -->
+    <!-- <div class="container"> -->
+
+    <!-- row -->
+
+    <!-- /Footer -->
+
+    <!-- preloader -->
+    <!-- <div id='preloader'><div class='preloader'></div></div> -->
+    <!-- /preloader -->
+
+
+    <!-- jQuery Plugins -->
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/main.js"></script>
 
 </body>
 

@@ -1,41 +1,51 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-  <title>Create Student</title>
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">  
+    <title>Create Student</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 </head>
 
 <style type="text/css">
-  h2{
-    text-align: center;
-  }
+    h2 {
+        text-align: center;
+    }
 </style>
 
 <body>
-  <div class="container">
-  <form method="post" action="/students">
-    <br>
-  <h2>Add New Student</h2>
-  <div class="form-group">
-    <label for="e1">Name</label>
-    <input name="name" type="text" class="form-control" id="e1" aria-describedby="emailHelp">
-  </div>
-  <div class="form-group">
-    <label for="e3">Total Credits</label>
-    <input name="total_credits" type="number" class="form-control" id="e3" aria-describedby="emailHelp">
-  </div>
-  <div class="form-group">
-    <label for="e2">Department Name</label>
-    <input name="department_name"type="text" class="form-control" id="e2" aria-describedby="emailHelp">
-  </div>
-  <div class="form-group">
-    <label for="e4">Instructor ID</label>
-    <input name="instructor_id" type="number" class="form-control" id="e4" aria-describedby="emailHelp">
-  </div>
+    <div class="container">
+        <form method="post" action="/students">
+            <br>
+            <h2>Add New Student</h2>
+            <div class="form-group">
+                <label for="e1">Name</label>
+                <input name="name" type="text" class="form-control" id="e1" aria-describedby="emailHelp">
+            </div>
+            <div class="form-group">
+                <label for="e3">Total Credits</label>
+                <input name="total_credits" type="number" class="form-control" id="e3" aria-describedby="emailHelp">
+            </div>
+            <div class="form-group">
+                <label for="e2">Department Name</label>
+                <input name="department_name" type="text" class="form-control" id="e2" aria-describedby="emailHelp">
+            </div>
+            <div class="form-group">
+                <label for="e4">Instructor ID</label>
+                <input name="instructor_id" type="number" class="form-control" id="e4" aria-describedby="emailHelp">
+            </div>
+            <div class="form-group">
+                <label for="e5">coursea</label>
+                <input name="coursea" type="text" class="form-control" id="e5" aria-describedby="emailHelp">
+            </div>
+            <div class="form-group">
+                <label for="e5">Icourseb</label>
+                <input name="courseb" type="text" class="form-control" id="e6" aria-describedby="emailHelp">
+            </div>
 
-  <button type="submit" class="btn btn-primary">Submit</button>
-</form>
-  </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
 
 </body>
+
 </html>
