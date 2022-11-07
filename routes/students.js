@@ -14,19 +14,19 @@ router.get("/", (req, res) => {
             });
         }
         // res.send(rows);
-        res.render("../FrontEnd/students.ejs", { students: rows });
+        res.render("students.ejs", { students: rows });
     });
 });
 
 
 
 router.get("/create", function (req, res) {
-    res.render("../FrontEnd/createStudent.ejs");
+    res.render("createStudent.ejs");
 });
 
 
 router.get("/search1", function (req, res) {
-    res.render("../FrontEnd/search.ejs");
+    res.render("search.ejs");
 });
 
 router.post("/:id/search2", (req, res) => {
@@ -56,7 +56,7 @@ router.post("/:id/search2", (req, res) => {
         console.log(' afjasdfkjas  ');
         if (err) console.log(err);
         if (!rows) console.log('chumtiya');
-        else return res.render("../Frontend/searchresult.ejs", { students: rows });
+        else return res.render("searchresult.ejs", { students: rows });
         res.redirect("/students/search1");
     });
     }
@@ -67,7 +67,7 @@ router.post("/:id/search2", (req, res) => {
         console.log(' afjasdfkjas  ');
         if (err) console.log(err);
         if (!rows) console.log('chumtiya');
-        // else return res.render("../Frontend/searchresult.ejs", { students: rows });
+        // else return res.render("searchresult.ejs", { students: rows });
         else return res.render("searchresult.ejs", { students: rows });
         res.redirect("/students/search1");
     });
@@ -78,7 +78,7 @@ router.post("/:id/search2", (req, res) => {
             console.log(' afjasdfkjas  ');
             if (err) console.log(err);
             if (!rows) console.log('chumtiya');
-            else return res.render("../Frontend/searchresult.ejs", { students: rows });
+            else return res.render("searchresult.ejs", { students: rows });
             res.redirect("/students/search1");
         });
     }
@@ -101,7 +101,7 @@ router.get("/:id", (req, res) => {
             });
         }
         // return res.send(rows);
-        res.render("../FrontEnd/studentById.ejs", { student: rows });
+        res.render("studentById.ejs", { student: rows });
     });
 });
 
@@ -209,7 +209,7 @@ router.post("/:id/delete", (req, res) => {
 });
 router.post("/:id/update", (req, res) => {
 
-    res.render("../Frontend/updateStudent.ejs", { "sid": req.params.id })
+    res.render("updateStudent.ejs", { "sid": req.params.id })
 
 });
 router.post("/:id/update2", (req, res) => {

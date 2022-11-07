@@ -15,7 +15,7 @@ router.get("/", (req, res) => {
             });
         }
         // res.send(rows);
-        res.render("../FrontEnd/attendance.ejs", { attendance: rows });
+        res.render("attendance.ejs", { attendance: rows });
     });
 });
 
@@ -35,7 +35,7 @@ router.get("/:id", (req, res) => {
             });
         }
         // return res.send(rows);
-        res.render("../FrontEnd/studentById.ejs", { attendance: rows });
+        res.render("studentById.ejs", { attendance: rows });
     });
 });
 
