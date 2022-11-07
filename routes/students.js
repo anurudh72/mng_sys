@@ -138,7 +138,7 @@ router.post("/", (req, res) => {
                 // }
             });
 
-            db.run(`  insert into attendance (id, name, present, absent,course  )
+            db.run(`  insert into attendance (id, name, present, absent, course  )
                       select student.id, '${iname}', 0, 0 , coursea
                       from student 
                       where id = ( select max(id) from student);
@@ -235,8 +235,8 @@ router.post("/:id/update2", (req, res) => {
                         message: "An error occurred while trying to update this student."
                     });
                 }
+                res.redirect("/students");
             });
-            res.redirect("/students");
         } else return res.redirect("/instructors/lol");
     });
 })
