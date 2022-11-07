@@ -1,7 +1,9 @@
 const Express = require('express');
 const app = Express();
 const db = require('./db/database').createDatabase();
-
+const path = require('path');
+app.set('view engine', 'ejs');
+app.set('views', path.join(__dirname, '/FrontEnd'));
 require('./startup/db').init(db);
 require('./startup/logger')(app);
 require('./startup/routers')(app);
