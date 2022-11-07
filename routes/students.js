@@ -114,8 +114,7 @@ router.post("/", (req, res) => {
     const icoursea = req.body.coursea;
     const icourseb = req.body.courseb;
 
-    // , coursea , courseb 
-    //  ,'${icoursea}','${icourseb}'
+    console.log(iname + '  ' + icreds + ' '  + idept + ' '  +  iid + ' '  +  icoursea + ' '  +  icourseb)
 
     db.get(`SELECT * FROM instructor WHERE id ='${iid}' and department_name = '${idept}'`, (errr, ro) => {
         if (errr) console.log(errr);
@@ -139,8 +138,8 @@ router.post("/", (req, res) => {
                 // }
             });
 
-            db.run(`  insert into attendance (id, name, present, absent, course  )
-                      select student.id, '${iname}', 0, 0 , coursea
+            db.run(`insert into attendance (id, present, absent, course  )
+                      select student.id,  0, 0 , coursea
                       from student 
                       where id = ( select max(id) from student);
             `, (err, rows) => {
@@ -157,8 +156,8 @@ router.post("/", (req, res) => {
                 // }
             });
 
-            db.run(`  insert into attendance (id, name, present, absent  , course )
-            select student.id, '${iname}', 0, 0 ,courseb
+            db.run(`  insert into attendance (id, present, absent  , course )
+            select student.id,  0, 0 ,courseb
             from student 
             where id = ( select max(id) from student);
             `, (err, rows) => {

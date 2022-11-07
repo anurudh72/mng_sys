@@ -16,7 +16,8 @@ module.exports.instructorColumns = {
     id: "id",
     name: "name",
     salary: "salary",
-    department_name: "department_name"
+    department_name: "department_name",
+
 };
 
 module.exports.studentColumns = {
@@ -38,7 +39,6 @@ module.exports.sectionColumns = {
 
 module.exports.attendanceColumns = {
     id: "id",
-    name: "name",
     course: "course",
     present: "present",
     absent: "absent"

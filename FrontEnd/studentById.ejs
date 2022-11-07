@@ -142,19 +142,13 @@
                 <th>Name</th>
                 <th>Department </th>
                 <th>Total Credits</th>
-                <th>Instructor ID</th>
-                <th>Course 1</th>
-                <th>Course 2</th>
-                <th style="text-align: center;" colspan="2">Operations</th>
-                <th></th>
             </tr>
 
 
 
             <tr>
                 <td>
-                    20JE000
-                    <%=student.id%>
+                    20JE000<%=student.id%>
                 </td>
                 <td>
                     <%=student.name%>
@@ -165,6 +159,23 @@
                 <td>
                     <%=student.total_credits%>
                 </td>
+            </tr>
+
+        </table>
+        <br><br>
+        <table>
+            <tr>
+              
+                <th>Instructor ID</th>
+                <th>Course 1</th>
+                <th>Course 2</th>
+                <th style="text-align: center;" colspan="2">Operations</th>
+            </tr>
+
+
+
+            <tr>
+               
                 <td>
                     <%=student.instructor_id%>
                 </td>
@@ -175,13 +186,13 @@
                     <%=student.courseb%>
                 </td>
 
-                <td>
+                <td style="text-align:center;">
                     <form action="/students/<%=student.id%>/delete" method="POST">
                         <button class="btn btn-danger"> <i class="fas fa-trash-alt" style="padding-right: 5px"></i>
                 Delete</button>
                     </form>
                 </td>
-                <td>
+                <td style="text-align:center;">
                     <form action="/students/<%=student.id%>/update" method="POST">
                         <button class="btn btn-success"><i class="fa fa-pencil-alt"
                     aria-hidden="true"></i>

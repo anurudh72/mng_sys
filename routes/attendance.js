@@ -6,7 +6,8 @@ const { validateStudent } = require('../db/models');
 // const attendance = tables.tableNames.attendance;
 
 router.get("/", (req, res) => {
-    const sqlQuery = `SELECT * FROM attendance`;
+    // const sqlQuery = `select attendance.id, student.name,student.total_credits  course,  present, absent  from attendance inner join student  on student.id=attendance.id;`;
+    const sqlQuery = `select * from student natural join attendance;`
     db.all(sqlQuery, (err, rows) => {
         if (err) {
             console.log(err);
@@ -15,6 +16,8 @@ router.get("/", (req, res) => {
             });
         }
         // res.send(rows);
+        console.log("Join table ")
+        console.table(rows)
         res.render("attendance.ejs", { attendance: rows });
     });
 });

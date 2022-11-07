@@ -47,7 +47,6 @@ const createSectionsSql = `CREATE TABLE IF NOT EXISTS ${tableNames.section}(
 const attendanceColumns = tables.attendanceColumns;
 const createAttendanceSql = `CREATE TABLE IF NOT EXISTS ${tableNames.attendance}(
     ${attendanceColumns.id} INTEGER ,
-    ${attendanceColumns.name} TEXT,
     ${attendanceColumns.course} TEXT NOT NULL, 
     ${attendanceColumns.present} INTEGER,
     ${attendanceColumns.absent} INTEGER
