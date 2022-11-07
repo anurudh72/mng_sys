@@ -67,7 +67,8 @@ router.post("/:id/search2", (req, res) => {
         console.log(' afjasdfkjas  ');
         if (err) console.log(err);
         if (!rows) console.log('chumtiya');
-        else return res.render("../Frontend/searchresult.ejs", { students: rows });
+        // else return res.render("../Frontend/searchresult.ejs", { students: rows });
+        else return res.render("searchresult.ejs", { students: rows });
         res.redirect("/students/search1");
     });
     
