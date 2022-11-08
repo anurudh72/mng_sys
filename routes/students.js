@@ -217,8 +217,15 @@ router.post("/:id/delete", (req, res) => {
     return res.redirect("/students");
 });
 router.post("/:id/update", (req, res) => {
-
-    res.render("updateStudent.ejs", { "sid": req.params.id })
+    const iid = req.params.id;
+    console.log('iiiii ' + iid);
+    db.get(`SELECT * FROM student where id = ${iid}`, (errr, ro) => {
+        console.log('nakli');
+        console.table(ro);
+        if (errr) console.log(errr);
+        else res.render("updateStudent.ejs", {stud:ro, "sid": req.params.id })
+    });
+    
 
 });
 router.post("/:id/update2", (req, res) => {
