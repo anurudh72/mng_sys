@@ -82,6 +82,16 @@ router.post("/:id/search2", (req, res) => {
             res.redirect("/students/search1");
         });
     }
+    else 
+    {
+        db.all(`select * from student;`, (err, rows) => {
+            console.log(' afjasdfkjas  ');
+            if (err) console.log(err);
+            if (!rows) console.log('chumtiya');
+            else return res.render("searchresult.ejs", { students: rows });
+            res.redirect("/students/search1");
+        });
+    }
     
 })
 

@@ -25,7 +25,7 @@ router.get("/:id/idcoursestd", (req, res) => {
     const cid = req.params.id;
     console.log("wdc " + cid);
     // console.log('nmnmnmnmn' + nm);
-    const sqlQuery = `SELECT * from attendance WHERE course='${cid}';`
+    const sqlQuery = `SELECT * from attendance natural join student WHERE attendance.course='${cid}';`
 
     // SELECT * FROM student as s ,attendance as a WHERE (s.coursea = '${cid}' or s.courseb = '${cid}') and s.id=a.id and
     // (s.coursea=a.course or s.courseb=a.course)

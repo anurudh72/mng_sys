@@ -98,7 +98,6 @@
         }
     </style>
 </head>
-</head>
 
 <body style="background-color:rgb(188, 157, 187);">
 
@@ -152,9 +151,8 @@
 
             <% attendance.forEach((attendanc)=> {%>
                 <tr>
-                    <td><a href="/attendance/<%=attendanc.id%>">
-              20JE000<%=attendanc.id%>
-            </a></td>
+                    <td>  <a href="/students/<%=attendanc.id%>">20JE000<%=attendanc.id%> </a>
+            </td>
                     <td>
                         <%=attendanc.name%>
                     </td>
