@@ -202,11 +202,6 @@ router.post("/", (req, res) => {
                         message: "An error occured while trying to save the student details"
                     });
                 }
-                // if (!rows) {
-                //     // return res.status(404).send({
-                //     //     message: "A student with the requested ID was not found."
-                //     // });
-                // }
             });
 
 
@@ -258,14 +253,13 @@ router.post("/:id/update", (req, res) => {
 router.post("/:id/update2", (req, res) => {
 
     const iname = req.body.name;
-    const icreds = req.body.total_credits;
     const idept = req.body.department_name;
     const iid = req.body.instructor_id;
     const icoursea = req.body.coursea;
     const icourseb = req.body.courseb;
     const sqlQuery = `
     UPDATE ${tables.tableNames.student}
-    SET name = '${iname}', total_credits = ${icreds}, department_name = '${idept}', instructor_id = '${iid}',coursea = '${icoursea}',courseb = '${icourseb}' 
+    SET name = '${iname}', department_name = '${idept}', instructor_id = '${iid}',coursea = '${icoursea}',courseb = '${icourseb}' 
     WHERE ${tables.studentColumns.id} == ? ;`
 
 
@@ -279,7 +273,18 @@ router.post("/:id/update2", (req, res) => {
                         message: "An error occurred while trying to update this student."
                     });
                 }
-                res.redirect("/students");
+                db.run(` update student set total_credits = (select credits from section where id = '${icoursea}') + 
+            (select credits from section where id = '${icourseb}');
+            `, (err, rows) => {
+                    if (err) {
+                        console.log(err);
+                        return res.status(500).send({
+                            message: "An error occured while trying to save the student details"
+                        });
+                    }
+                    else 
+                    res.redirect("/students");
+                });
             });
         } else return res.redirect("/instructors/lol");
     });
