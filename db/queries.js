@@ -24,7 +24,7 @@ const sectionColumns = tables.sectionColumns;
 const createStudentsSql = `CREATE TABLE IF NOT EXISTS ${tableNames.student}(
         ${studentColumns.id} INTEGER PRIMARY KEY NOT NULL,
         ${studentColumns.name} TEXT NOT NULL,
-        ${studentColumns.total_credits} INTEGER NOT NULL,
+        ${studentColumns.total_credits} INTEGER ,
         ${studentColumns.instructor_id} INTEGER,
         ${studentColumns.department_name} TEXT,
         ${studentColumns.coursea} TEXT NOT NULL,
@@ -40,7 +40,10 @@ const createStudentsSql = `CREATE TABLE IF NOT EXISTS ${tableNames.student}(
 const createSectionsSql = `CREATE TABLE IF NOT EXISTS ${tableNames.section}(
     ${sectionColumns.id} TEXT PRIMARY KEY NOT NULL,
     ${sectionColumns.semester} INTEGER NOT NULL CHECK(${sectionColumns.semester} <= 8),
-    ${sectionColumns.year} INTEGER NOT NULL CHECK(${sectionColumns.year} <= 4)
+    ${sectionColumns.year} INTEGER NOT NULL CHECK(${sectionColumns.year} <= 4),
+    instructor_id int,
+    credits int
+
 )`;
 
 

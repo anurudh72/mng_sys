@@ -163,6 +163,9 @@
                 <th>Course ID</th>
                 <th>Semester</th>
                 <th>Year</th>
+                <th>Credits</th>
+                <th>Instructor ID</th>
+                <th>Instructor</th>
                 <th>Operations</th>
             </tr>
 
@@ -178,6 +181,15 @@
                     </td>
                     <td>
                         <%=section.year%>
+                    </td>
+                    <td>
+                        <%=section.credits%>
+                    </td>
+                    <td>
+                        <%=section.instructor_id%>
+                    </td>
+                    <td>
+                        <%=section.nam%>
                     </td>
                     <td>
                         <form action="/sections/<%=section.id%>/delete" method="POST">

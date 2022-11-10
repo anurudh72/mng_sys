@@ -5,20 +5,22 @@ const { validateSection } = require('../db/models');
 const { render } = require('ejs');
 
 router.get("/", (req, res) => {
-    const sqlQuery = `SELECT * FROM ${tables.tableNames.section}`;
+    const sqlQuery = `SELECT * FROM ${tables.tableNames.section}  natural join (select id as 
+            instructor_id, name as nam from instructor )`;
     db.all(sqlQuery, (err, rows) => {
         if (err) {
             return res.status(500).send({
                 message: "An error occurred."
             })
         }
-        // res.send(rows);
+        console.table();
+        console.log(rows + '  fasdf ');
         res.render("../FrontEnd/sections.ejs", { sections: rows });
     });
 });
 
 router.get("/create", function(req, res) {
-    res.render("../FrontEnd/createSection.ejs")
+    res.render("../FrontEnd/createSection.ejs", {content: ""})
 });
 
 router.get("/:id/auth", (req, res) => {
@@ -90,21 +92,32 @@ router.post("/", (req, res) => {
     const Id = req.body.id;
     const Sem = req.body.semester;
     const Yr = req.body.year;
+    const iid = req.body.instr;
+    const cred = req.body.credits;
 
+    
     const sqlQuery = `
     INSERT INTO ${tables.tableNames.section}
-    (id, semester, year)
-    VALUES ('${Id}', ${Sem}, ${Yr})`;
+    (id, semester, year, instructor_id, credits)
+    VALUES ('${Id}', ${Sem}, ${Yr}, ${iid}, ${cred})`;
 
-    db.run(sqlQuery, (err) => {
-        if (err) {
-            console.log(err);
-            return res.status(500).send({
-                message: "An error occured while trying to save the section details"
+
+    db.get(`select * from instructor where id = '${iid}' `, (err, ro) => {
+        if(!ro)  res.render("../FrontEnd/createSection.ejs", {content: "Enter valid instructor id!"});
+        else{
+            db.run(sqlQuery, (err) => {
+                if (err) {
+                    console.log(err);
+                    return res.status(500).send({
+                        message: "An error occured while trying to save the section details"
+                    });
+                }
+                res.redirect("/sections")
             });
         }
-        res.redirect("/sections")
-    });
+    })
+
+    
 });
 
 router.post("/:id/delete", (req, res) => {

@@ -118,21 +118,19 @@ router.get("/:id", (req, res) => {
 router.post("/", (req, res) => {
 
     const iname = req.body.name;
-    const icreds = req.body.total_credits;
     const idept = req.body.department_name;
     const iid = req.body.instructor_id;
     const icoursea = req.body.coursea;
     const icourseb = req.body.courseb;
 
-    console.log(iname + '  ' + icreds + ' '  + idept + ' '  +  iid + ' '  +  icoursea + ' '  +  icourseb)
 
     db.get(`SELECT * FROM instructor WHERE id ='${iid}' and department_name = '${idept}'`, (errr, ro) => {
         if (errr) console.log(errr);
         else if (ro) {
             db.run(`
-            insert into student ( name, total_credits, instructor_id, department_name ,  coursea , courseb ) 
+            insert into student ( name, instructor_id, department_name ,  coursea , courseb ) 
             
-             values ('${iname}', ${icreds}, '${iid}', '${idept}','${icoursea}','${icourseb}')
+             values ('${iname}', '${iid}', '${idept}','${icoursea}','${icourseb}')
             
             `, (err, rows) => {
                 if (err) {
@@ -183,6 +181,24 @@ router.post("/", (req, res) => {
                 //     // });
                 // }
             });
+
+            db.run(` update student set total_credits = (select credits from section where id = '${icoursea}') + 
+            (select credits from section where id = '${icourseb}');
+            `, (err, rows) => {
+                if (err) {
+                    console.log(err);
+                    return res.status(500).send({
+                        message: "An error occured while trying to save the student details"
+                    });
+                }
+                // if (!rows) {
+                //     // return res.status(404).send({
+                //     //     message: "A student with the requested ID was not found."
+                //     // });
+                // }
+            });
+
+
 
 
             res.redirect("/students");
