@@ -143,6 +143,8 @@
                 <th>Name</th>
                 <th>Department </th>
                 <th>Total Credits</th>
+                <th>Instructor ID</th>
+                <th style="text-align: center;" colspan="2">Operations</th>
             </tr>
 
 
@@ -159,32 +161,8 @@
                 </td>
                 <td>
                     <%=student.total_credits%>
-                </td>
-            </tr>
-
-        </table>
-        <br><br>
-        <table>
-            <tr>
-              
-                <th>Instructor ID</th>
-                <th>Course 1</th>
-                <th>Course 2</th>
-                <th style="text-align: center;" colspan="2">Operations</th>
-            </tr>
-
-
-
-            <tr>
-               
-                <td>
+                </td><td>
                     <%=student.instructor_id%>
-                </td>
-                <td>
-                    <%=student.coursea%>
-                </td>
-                <td>
-                    <%=student.courseb%>
                 </td>
 
                 <td style="text-align:center;">
@@ -200,6 +178,36 @@
                     Update</button>
                     </form>
                 </td>
+            </tr>
+
+        </table>
+        <br><br>
+        <table>
+            <tr>
+              
+                <th>Course 1</th>
+                <th>Credits</th>
+                <th>Instructor</th>
+                <th>Course 2</th>
+                <th>Credits</th>
+                <th>Instructor</th>
+            </tr>
+
+
+
+            <tr>
+               
+                <td>
+                    <%=student.coursea%>
+                </td>
+                <td><%=r1.credits%></td>                
+                <td><%=r1.nam%></td>
+                <td>
+                    <%=student.courseb%>
+                </td>
+                <td><%=r2.credits%></td>                
+                <td><%=r2.nam%></td>
+                
             </tr>
 
         </table>

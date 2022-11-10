@@ -52,28 +52,28 @@ router.post("/:id/search2", (req, res) => {
     select * from student where coursea LIKE '%${icourse}%' or courseb LIKE '%${icourse}%' ;`
 
     if (iname && icourse) {
-       db.all(sqlQuery1, (err, rows) => {
-        console.log(' afjasdfkjas  ');
-        if (err) console.log(err);
-        if (!rows) console.log('chumtiya');
-        else return res.render("searchresult.ejs", { students: rows });
-        res.redirect("/students/search1");
-    });
+        db.all(sqlQuery1, (err, rows) => {
+            console.log(' afjasdfkjas  ');
+            if (err) console.log(err);
+            if (!rows) console.log('chumtiya');
+            else return res.render("searchresult.ejs", { students: rows });
+            res.redirect("/students/search1");
+        });
     }
     else if (iname) {
 
-    console.log('22222222');
-    db.all(sqlQuery2, (err, rows) => {
-        console.log(' afjasdfkjas  ');
-        if (err) console.log(err);
-        if (!rows) console.log('chumtiya');
-        // else return res.render("searchresult.ejs", { students: rows });
-        else return res.render("searchresult.ejs", { students: rows });
-        res.redirect("/students/search1");
-    });
-    
+        console.log('22222222');
+        db.all(sqlQuery2, (err, rows) => {
+            console.log(' afjasdfkjas  ');
+            if (err) console.log(err);
+            if (!rows) console.log('chumtiya');
+            // else return res.render("searchresult.ejs", { students: rows });
+            else return res.render("searchresult.ejs", { students: rows });
+            res.redirect("/students/search1");
+        });
+
     }
-    else if(icourse) {
+    else if (icourse) {
         db.all(sqlQuery3, (err, rows) => {
             console.log(' afjasdfkjas  ');
             if (err) console.log(err);
@@ -82,8 +82,7 @@ router.post("/:id/search2", (req, res) => {
             res.redirect("/students/search1");
         });
     }
-    else 
-    {
+    else {
         db.all(`select * from student;`, (err, rows) => {
             console.log(' afjasdfkjas  ');
             if (err) console.log(err);
@@ -92,7 +91,7 @@ router.post("/:id/search2", (req, res) => {
             res.redirect("/students/search1");
         });
     }
-    
+
 })
 
 router.get("/:id", (req, res) => {
@@ -111,7 +110,19 @@ router.get("/:id", (req, res) => {
             });
         }
         // return res.send(rows);
-        res.render("studentById.ejs", { student: rows });
+
+        db.get(`SELECT * FROM ${tables.tableNames.section}  natural join (select id as 
+            instructor_id, name as nam from instructor ) where id = '${rows.coursea}' `, (err, r1) => {
+            if (err) console.log(err);
+            else {
+                db.get(`SELECT * FROM ${tables.tableNames.section}  natural join (select id as 
+                    instructor_id, name as nam from instructor ) where id = '${rows.courseb}'  `, (err, r2) => {
+                    if (err) console.log(err);
+                    else res.render("studentById.ejs", { student: rows, r1: r1, r2: r2 });
+                })
+            }
+        })
+
     });
 });
 
@@ -239,9 +250,9 @@ router.post("/:id/update", (req, res) => {
         console.log('nakli');
         console.table(ro);
         if (errr) console.log(errr);
-        else res.render("updateStudent.ejs", {stud:ro, "sid": req.params.id })
+        else res.render("updateStudent.ejs", { stud: ro, "sid": req.params.id })
     });
-    
+
 
 });
 router.post("/:id/update2", (req, res) => {
