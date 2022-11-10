@@ -52,11 +52,18 @@ const createAttendanceSql = `CREATE TABLE IF NOT EXISTS ${tableNames.attendance}
     ${attendanceColumns.absent} INTEGER
 );`
 
+const passwordColums = tables.passwordColumns;
+const createPasswordSql = `CREATE TABLE IF NOT EXISTS ${tableNames.password}(
+    ${passwordColums.course} TEXT  ,
+    ${passwordColums.user} TEXT ,
+    ${passwordColums.pass} TEXT 
+);`;
 
 module.exports = {
     createDepartments: createDeptSql,
     createInstructors: createInstructorSql,
     createStudents: createStudentsSql,
     createSections: createSectionsSql,
-    createAttendance: createAttendanceSql
+    createAttendance: createAttendanceSql,
+    createPassword: createPasswordSql
 }

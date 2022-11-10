@@ -2,8 +2,9 @@
 <html>
 
 <head>
-  <title>Create Instructor</title>
+  <title>Create Department</title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
   <style>
     #header {
       position: relative;
@@ -365,14 +366,12 @@
         transform: translateX(-1000px);
       }
 
-      100% {
-        transform: translateX(0px);
-      }
+      100% {}
+
+      transform: translateX(0px);
     }
   </style>
 </head>
-
-
 
 <body>
 
@@ -459,32 +458,33 @@
         <br>
         <div class="box-root padding-top--48 padding-bottom--24 flex-flex flex-justifyContent--center">
           <h1>
-            <div style="color: rgb(84, 212, 203); font-weight: bold;">Create : Instructor</div>
-          </h1>
+            <div style="color: rgb(84, 212, 203); font-weight: bold;"> Add Intructor Access
         </div>
+        <br>
         <div class="formbg-outer">
           <div class="formbg">
             <div class="formbg-inner padding-horizontal--48">
-              <form method="post" action="/instructors">
-                <div class="field padding-bottom--24">
-                  <!-- <label for="name" style="font-size: larger;">Enter a Name</label>
+              <!-- <form method="post" action="/students/2/search2">
+                            <div class="field padding-bottom--24">
+                                <label for="name" style="font-size: larger;">Enter a Name</label>
                                 <input type="text" name="name" id="name" style="margin-bottom: 2%; margin-top: 2%;">
                                 <label style="font-size: x-large; text-align-last: center; color: #c00707; margin-top: 4%;">OR/AND</label>
                                 <label for="course" style="font-size: larger;">Enter a Course</label>
                                 <input type="text" name="course" id = "course" style="margin-bottom: 2%; margin-top: 2%;">
                                 <input type="submit" name="submit" value="Continue"
                                     style="margin-bottom: 2%; margin-top: 2%;"> -->
-                  <label for="e1" style="font-size: larger;">Name</label>
-                  <input name="name" type="text" class="form-control" id="e1" aria-describedby="emailHelp" style="margin-bottom: 2%; margin-top: 2%;">
-                  <label for="e2" style="font-size: larger;">Department Name</label>
-                  <input name="department_name" type="text" class="form-control" id="e2" aria-describedby="emailHelp" style="margin-bottom: 2%; margin-top: 2%;">
-                  <label for="e3" style="font-size: larger;">Salary</label>
-                  <input name="salary" type="number" class="form-control" id="e3" aria-describedby="emailHelp" style="margin-bottom: 2%; margin-top: 2%;">
-                  <br>
-                  <div><button type="submit " class="btn btn-primary "
-                      style=" display: block; width: 100%; border: none; border-radius: 0%; padding: 14px 28px; font-size: 20px; cursor: pointer; text-align: center; ">Submit</button>
-                  </div>
-                </div>
+              <form method="post" action="/sections/authorise2">
+                <label for="e3" style="font-size:large; text-align: left; padding-top: 5px;">Course ID</label>
+                <input name="course" type="text" class="form-control" id="e3" aria-describedby="emailHelp" style="margin-bottom: 4%; margin-top: 2%;">
+                <label for="e1" style="font-size:large;  text-align: left; padding-top: 5px;">Username</label>
+                <input name="username" type="text" class="form-control" id="e1" aria-describedby="emailHelp" style="margin-bottom: 4%; margin-top: 2%;">
+                <label for="e2" style="font-size:large;  text-align: left; padding-top: 5px;">Password</label>
+                <input name="pass" type="password" class="form-control" id="e2" aria-describedby="emailHelp" style="margin-bottom: 4%; margin-top: 2%;">
+                <label for="e5" style="font-size:large; color: #FF6700;"><%=content%></label>
+               <div><button type="submit " class="btn btn-primary " style=" display: block; width: 100%; border: none; border-radius: 0%; padding: 14px 28px; font-size: 20px; cursor: pointer; text-align: center; ">Submit</button></div>
+              </div>
+              </form>
+
             </div>
           </div>
         </div>
@@ -493,6 +493,9 @@
   </div>
   </div>
   </div>
+
+
+
 
 </body>
 

@@ -3,7 +3,9 @@ module.exports.tableNames = {
     student: "student",
     section: "section",
     instructor: "instructor",
-    attendance: "attendance"
+    attendance: "attendance",
+    password: "password"
+
 };
 
 module.exports.deptColumns = {
@@ -33,7 +35,9 @@ module.exports.studentColumns = {
 module.exports.sectionColumns = {
     id: "id",
     semester: "semester",
-    year: "year"
+    year: "year",
+    instructor_id: "instructor_id",
+    credits: "credits"
 };
 
 
@@ -42,4 +46,9 @@ module.exports.attendanceColumns = {
     course: "course",
     present: "present",
     absent: "absent"
+};
+module.exports.passwordColumns = {
+    course: "course",
+    user: "user",
+    pass: "pass"
 };

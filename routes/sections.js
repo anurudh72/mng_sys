@@ -2,6 +2,7 @@ const router = require('express').Router();
 const tables = require('../db/tables');
 const db = require('../db/database').getDatabase();
 const { validateSection } = require('../db/models');
+const { render } = require('ejs');
 
 router.get("/", (req, res) => {
     const sqlQuery = `SELECT * FROM ${tables.tableNames.section}`;
@@ -19,6 +20,12 @@ router.get("/", (req, res) => {
 router.get("/create", function(req, res) {
     res.render("../FrontEnd/createSection.ejs")
 });
+
+router.get("/:id/auth", (req, res) => {
+
+    res.render('auth.ejs', {course: req.params.id, content: ''})
+});
+
 
 router.get("/:id/idcoursestd", (req, res) => {
 
@@ -42,6 +49,36 @@ router.get("/:id/idcoursestd", (req, res) => {
     });
 });
 
+router.post("/:id/auth2", (req, res) => {
+
+    const course = req.body.course;
+    const pass = req.body.pass;
+    const username = req.body.username;
+    console.log(course + ' ' + pass + ' ' + username);
+    db.get( `select * from password where course = '${course}' and pass = '${pass}' and user = '${username}'; `, (err, rows) => {
+        console.log(rows);
+        console.table(' tablaa');
+        if(rows) res.redirect('/sections/' + course + '/idcoursestd');
+        else res.render('auth.ejs', {course: req.params.id, content: 'Incorrect credentials!'})
+    } )
+
+})
+
+router.get("/authorise", (req, res) => {
+    res.render('addauth.ejs', {content: ''} );
+})
+
+router.post('/authorise2', (req, res) => {
+
+    const course = req.body.course;
+    const pass = req.body.pass;
+    const username = req.body.username;
+
+    db.run(`insert into password values ('${course}', '${username}', '${pass}' );`)
+    res.render('addauth.ejs', {content : 'Successfully added!'});
+})
+
+
 router.post("/", (req, res) => {
     // const { error } = validateSection(req.body);
     // if (error) {
@@ -53,6 +90,7 @@ router.post("/", (req, res) => {
     const Id = req.body.id;
     const Sem = req.body.semester;
     const Yr = req.body.year;
+
     const sqlQuery = `
     INSERT INTO ${tables.tableNames.section}
     (id, semester, year)
