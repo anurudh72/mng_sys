@@ -245,7 +245,7 @@ router.post("/:id/update", (req, res) => {
         console.log('nakli');
         console.table(ro);
         if (errr) console.log(errr);
-        else res.render("updateStudent.ejs", { stud: ro, "sid": req.params.id })
+        else if (ro) res.render("updateStudent.ejs", { stud: ro, "sid": req.params.id })
     });
 
 
