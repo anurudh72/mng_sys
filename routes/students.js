@@ -193,8 +193,8 @@ router.post("/", (req, res) => {
                 // }
             });
 
-            db.run(` update student set total_credits = (select credits from section where id = '${icoursea}') + 
-            (select credits from section where id = '${icourseb}');
+            db.run(` update student set total_credits = (select credits from section where section.id = '${icoursea}') + 
+            (select credits from section where section.id = '${icourseb}') where id = ( select max(id) from student);
             `, (err, rows) => {
                 if (err) {
                     console.log(err);
@@ -245,13 +245,15 @@ router.post("/:id/update", (req, res) => {
         console.log('nakli');
         console.table(ro);
         if (errr) console.log(errr);
-        else if (ro) res.render("updateStudent.ejs", { stud: ro, "sid": req.params.id })
+        res.render("updateStudent.ejs", { stud: ro, "sid": req.params.id })
     });
 
 
 });
 router.post("/:id/update2", (req, res) => {
 
+    const roll = req.params.id;
+    console.log('roll ' + roll);
     const iname = req.body.name;
     const idept = req.body.department_name;
     const iid = req.body.instructor_id;
@@ -273,8 +275,8 @@ router.post("/:id/update2", (req, res) => {
                         message: "An error occurred while trying to update this student."
                     });
                 }
-                db.run(` update student set total_credits = (select credits from section where id = '${icoursea}') + 
-            (select credits from section where id = '${icourseb}');
+                db.run(` update student set total_credits = (select credits from section where section.id = '${icoursea}') + 
+            (select credits from section where section.id = '${icourseb}') where id = ${roll} ;
             `, (err, rows) => {
                     if (err) {
                         console.log(err);
