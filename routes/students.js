@@ -275,7 +275,7 @@ router.post("/:id/update2", (req, res) => {
                         message: "An error occurred while trying to update this student."
                     });
                 }
-                db.run(` update student set total_credits = (select credits from section where section.id = '${icoursea}') + 
+                else db.run(` update student set total_credits = (select credits from section where section.id = '${icoursea}') + 
                 (select credits from section where section.id = '${icourseb}') where id = ${roll} ;
                 `, (err, rows) => {
                     if (err) {
@@ -284,43 +284,48 @@ router.post("/:id/update2", (req, res) => {
                             message: "An error occured while trying to save the student details"
                         });
                     }
-                });
-                db.run(` delete from attendance where id = ${roll};
-                `, (err, rows) => {
-                    if (err) {
-                        console.log(err);
-                        return res.status(500).send({
-                            message: "An error occured while trying to save the student details"
-                        });
-                    }
-                });
-                db.run(`insert into attendance values (${roll}, '${icoursea}',  0, 0), 
-                       (${roll}, '${icourseb}' ,  0, 0);
-                `, (err, rows) => {
-                    if (err) {
-                        console.log(err);
-                        return res.status(500).send({
-                            message: "An error occured while trying to save the student details"
-                        });
-                    }
-                });       
-                db.run(` update student set total_credits = (select credits from section where section.id = '${icoursea}') + 
-            (select credits from section where section.id = '${icourseb}') where id = ${roll};
-            `, (err, rows) => {
-                if (err) {
-                    console.log(err);
-                    return res.status(500).send({
-                        message: "An error occured while trying to save the student details"
-                    });
-                }
-                else 
-                res.redirect("/students");
-            });
+                    else db.run(` delete from attendance where id = ${roll};
+                    `, (err, rows) => {
+                        if (err) {
+                            console.log(err);
+                            return res.status(500).send({
+                                message: "An error occured while trying to save the student details"
+                            });
+                        }
+                        else db.run(`insert into attendance values (${roll}, '${icoursea}',  0, 0), 
+                        (${roll}, '${icourseb}' ,  0, 0);
+                              `, (err, rows) => {
+                     if (err) {
+                         console.log(err);
+                         return res.status(500).send({
+                             message: "An error occured while trying to save the student details"
+                         });
+                     }
+                     else
+                         res.redirect("/students");
+                 });
 
+                });
+                });
                 
+                
+                //     db.run(` update student set total_credits = (select credits from section where section.id = '${icoursea}') + 
+                // (select credits from section where section.id = '${icourseb}') where id = ${roll};
+                // `, (err, rows) => {
+                //     if (err) {
+                //         console.log(err);
+                //         return res.status(500).send({
+                //             message: "An error occured while trying to save the student details"
+                //         });
+                //     }
+
+                // });
+
+
 
             });
-        } else return res.redirect("/instructors/lol");
+        } 
+        else return res.redirect("/instructors/lol");
     });
 })
 
